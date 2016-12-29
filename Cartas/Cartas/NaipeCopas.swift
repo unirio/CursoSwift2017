@@ -12,39 +12,35 @@ class NaipeCopas: UIView {
 	
 	override func drawRect(rect: CGRect)
 	{
-		let minimo = min(bounds.size.width, bounds.size.height)
-		
-		let scaledWidth = minimo
-		let scaledXValue = (bounds.size.width - minimo) / 2
-		let scaledHeight = minimo
-		let scaledYValue = (bounds.size.height - minimo) / 2
-		let scaledRect = CGRect(x: scaledXValue, y: scaledYValue, width: scaledWidth, height: scaledHeight)
+		let centerSquareSide = min(bounds.size.width, bounds.size.height)
+		let centerSquareX = (bounds.size.width - centerSquareSide) / 2
+		let centerSquareY = (bounds.size.height - centerSquareSide) / 2
 
-		let figura = UIBezierPath()
-		figura.moveToPoint(CGPointMake(scaledRect.origin.x + scaledRect.size.width/2, scaledRect.origin.y + scaledRect.size.height))
+		let path = UIBezierPath()
+		path.moveToPoint(CGPointMake(centerSquareX + centerSquareSide / 2, centerSquareY + centerSquareSide))
 		
-		figura.addCurveToPoint(CGPointMake(scaledRect.origin.x, scaledRect.origin.y + (scaledRect.size.height/4)),
-			controlPoint1: CGPointMake(scaledRect.origin.x + (scaledRect.size.width/2), scaledRect.origin.y + (scaledRect.size.height*3/4)) ,
-			controlPoint2: CGPointMake(scaledRect.origin.x, scaledRect.origin.y + (scaledRect.size.height/2)))
+		path.addCurveToPoint(CGPointMake(centerSquareX, centerSquareY + centerSquareSide / 4),
+			controlPoint1: CGPointMake(centerSquareX + centerSquareSide / 2, centerSquareY + centerSquareSide * 3 / 4),
+			controlPoint2: CGPointMake(centerSquareX, centerSquareY + centerSquareSide / 2))
 		
-		figura.addArcWithCenter(CGPointMake(scaledRect.origin.x + (scaledRect.size.width/4),scaledRect.origin.y + (scaledRect.size.height/4)),
-			radius: (scaledRect.size.width / 4),
+		path.addArcWithCenter(CGPointMake(centerSquareX + centerSquareSide / 4, centerSquareY + centerSquareSide / 4),
+			radius: centerSquareSide / 4,
 			startAngle: CGFloat(M_PI),
 			endAngle: 0,
 			clockwise: true)
 		
-		figura.addArcWithCenter(CGPointMake(scaledRect.origin.x + (scaledRect.size.width * 3/4),scaledRect.origin.y + (scaledRect.size.height/4)),
-			radius: (scaledRect.size.width / 4),
+		path.addArcWithCenter(CGPointMake(centerSquareX + centerSquareSide * 3 / 4, centerSquareY + centerSquareSide / 4),
+			radius: centerSquareSide / 4,
 			startAngle: CGFloat(M_PI),
 			endAngle: 0,
 			clockwise: true)
 		
-		figura.addCurveToPoint(CGPointMake(scaledRect.origin.x + scaledRect.size.width/2, scaledRect.origin.y + scaledRect.size.height),
-			controlPoint1: CGPointMake(scaledRect.origin.x + scaledRect.size.width, scaledRect.origin.y + (scaledRect.size.height/2)),
-			controlPoint2: CGPointMake(scaledRect.origin.x + (scaledRect.size.width/2), scaledRect.origin.y + (scaledRect.size.height*3/4)) )
+		path.addCurveToPoint(CGPointMake(centerSquareX + centerSquareSide / 2, centerSquareY + centerSquareSide),
+			controlPoint1: CGPointMake(centerSquareX + centerSquareSide, centerSquareY + centerSquareSide / 2),
+			controlPoint2: CGPointMake(centerSquareX + centerSquareSide / 2, centerSquareY + centerSquareSide * 3 / 4))
 		
-		figura.closePath()
+		path.closePath()
 		UIColor.redColor().set()
-		figura.fill()
+		path.fill()
 	}
 }

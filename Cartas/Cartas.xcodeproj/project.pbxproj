@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		978ECE9A1E1579AB00CCB828 /* NaipeEspadas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978ECE991E1579AB00CCB828 /* NaipeEspadas.swift */; };
+		978ECE9C1E159B2300CCB828 /* NaipePaus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978ECE9B1E159B2300CCB828 /* NaipePaus.swift */; };
 		97B6C06C1E130B3B00BA372C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B6C06B1E130B3B00BA372C /* AppDelegate.swift */; };
 		97B6C06E1E130B3B00BA372C /* CartasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B6C06D1E130B3B00BA372C /* CartasViewController.swift */; };
 		97B6C0711E130B3B00BA372C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97B6C06F1E130B3B00BA372C /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		978ECE991E1579AB00CCB828 /* NaipeEspadas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaipeEspadas.swift; sourceTree = "<group>"; };
+		978ECE9B1E159B2300CCB828 /* NaipePaus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaipePaus.swift; sourceTree = "<group>"; };
 		97B6C0681E130B3B00BA372C /* Cartas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cartas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B6C06B1E130B3B00BA372C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97B6C06D1E130B3B00BA372C /* CartasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartasViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				97B6C06F1E130B3B00BA372C /* Main.storyboard */,
 				97B6C07E1E130C2700BA372C /* NaipeOuro.swift */,
 				97B6C0801E13125A00BA372C /* NaipeCopas.swift */,
+				978ECE991E1579AB00CCB828 /* NaipeEspadas.swift */,
+				978ECE9B1E159B2300CCB828 /* NaipePaus.swift */,
 			);
 			path = Cartas;
 			sourceTree = "<group>";
@@ -149,9 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978ECE9C1E159B2300CCB828 /* NaipePaus.swift in Sources */,
 				97B6C06E1E130B3B00BA372C /* CartasViewController.swift in Sources */,
 				97B6C07F1E130C2700BA372C /* NaipeOuro.swift in Sources */,
 				97B6C0811E13125A00BA372C /* NaipeCopas.swift in Sources */,
+				978ECE9A1E1579AB00CCB828 /* NaipeEspadas.swift in Sources */,
 				97B6C06C1E130B3B00BA372C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +310,7 @@
 				97B6C07C1E130B3B00BA372C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

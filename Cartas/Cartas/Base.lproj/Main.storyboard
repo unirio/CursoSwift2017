@@ -32,10 +32,13 @@
                             <constraint firstItem="Kag-72-zdV" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="lbo-BG-J2x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="naipe" destination="Kag-72-zdV" id="eIF-Qu-aKh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="407"/>
+            <point key="canvasLocation" x="440" y="402"/>
         </scene>
     </scenes>
 </document>
