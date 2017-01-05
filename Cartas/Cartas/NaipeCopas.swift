@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NaipeCopas: UIView {
+@IBDesignable class NaipeCopas: UIView {
 	
 	override func drawRect(rect: CGRect)
 	{

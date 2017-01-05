@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gBK-6D-638">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--Temperatura-->
+        <scene sceneID="OjM-Rm-1JM">
+            <objects>
+                <viewController id="ezM-Ea-AmW" customClass="TemperaturaViewController" customModule="ConversorTabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="594-aK-DJ7"/>
+                        <viewControllerLayoutGuide type="bottom" id="qJS-eC-ukC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nAB-5i-6fP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FHA-tm-lrs">
+                                <rect key="frame" x="141" y="194" width="318" height="212"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JvN-Qb-KCK">
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kt-5I-6IY">
+                                                <rect key="frame" x="0.0" y="0.0" width="318" height="30"/>
+                                                <animations/>
+                                                <state key="normal" title="Celsius:"/>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entre a temperatura em graus Celsius ..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JzU-st-Jla">
+                                                <rect key="frame" x="0.0" y="30" width="318" height="30"/>
+                                                <animations/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="editedCelsius:" destination="ezM-Ea-AmW" eventType="editingChanged" id="89F-ew-hKg"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="85N-tV-1tX">
+                                        <rect key="frame" x="0.0" y="76" width="318" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRj-Sf-XJx">
+                                                <rect key="frame" x="0.0" y="0.0" width="318" height="30"/>
+                                                <animations/>
+                                                <state key="normal" title="Fahrenheit:"/>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entre com a temperatura em graus Fahrenheit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUN-aT-LJa">
+                                                <rect key="frame" x="0.0" y="30" width="318" height="30"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="editedFahrenheit:" destination="ezM-Ea-AmW" eventType="editingChanged" id="0Tm-gO-yMv"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aTc-l4-vC0">
+                                        <rect key="frame" x="0.0" y="152" width="318" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiU-dr-XcB">
+                                                <rect key="frame" x="0.0" y="0.0" width="318" height="30"/>
+                                                <animations/>
+                                                <state key="normal" title="Kelvin:"/>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entre com a temperatura em graus Kelvin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rNQ-yI-H12">
+                                                <rect key="frame" x="0.0" y="30" width="318" height="30"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="editKelvin:" destination="ezM-Ea-AmW" eventType="editingChanged" id="16R-wh-Z0s"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FHA-tm-lrs" firstAttribute="centerX" secondItem="nAB-5i-6fP" secondAttribute="centerX" id="Ez1-CX-9aE"/>
+                            <constraint firstItem="FHA-tm-lrs" firstAttribute="centerY" secondItem="nAB-5i-6fP" secondAttribute="centerY" id="yHH-et-ynK"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Temperatura" image="termometro" id="rEU-Or-KuG"/>
+                    <navigationItem key="navigationItem" title="Temperatura" id="Eq1-Zi-zEN"/>
+                    <connections>
+                        <outlet property="txtCelsius" destination="JzU-st-Jla" id="eQW-kT-tzM"/>
+                        <outlet property="txtFahrenheit" destination="XUN-aT-LJa" id="HwG-yu-BcE"/>
+                        <outlet property="txtKelvin" destination="rNQ-yI-H12" id="qnk-i2-dgv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cA3-Bu-rNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-243" y="1415"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="rnd-9a-wtb">
+            <objects>
+                <tabBarController id="gBK-6D-638" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="4Dl-3P-wFb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="sug-VF-zLY" kind="relationship" relationship="viewControllers" id="wkk-In-0gU"/>
+                        <segue destination="ezM-Ea-AmW" kind="relationship" relationship="viewControllers" id="NEw-mB-nmU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TjS-bE-ZrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1348" y="1061"/>
+        </scene>
+        <!--Distância-->
+        <scene sceneID="hkP-wp-Vgg">
+            <objects>
+                <viewController id="sug-VF-zLY" customClass="DistanciaViewController" customModule="ConversorTabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D2r-Z0-QhO"/>
+                        <viewControllerLayoutGuide type="bottom" id="zKB-1K-LAE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cdY-zz-Afr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-Tj-M70">
+                                <rect key="frame" x="168" y="207" width="265" height="185"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Ef-bs-BlW">
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="51"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metros:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHC-gZ-DLj">
+                                                <rect key="frame" x="0.0" y="0.0" width="265" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entre com a distância em metros" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caO-EC-vmK">
+                                                <rect key="frame" x="0.0" y="21" width="265" height="30"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="editedMetros:" destination="sug-VF-zLY" eventType="editingChanged" id="dSf-TV-fBU"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u26-jY-77M">
+                                        <rect key="frame" x="0.0" y="67" width="265" height="51"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centímetros:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEw-SA-3eY">
+                                                <rect key="frame" x="0.0" y="0.0" width="265" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entre com a distância em centímetros" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cF5-Hb-hdL">
+                                                <rect key="frame" x="0.0" y="21" width="265" height="30"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="editedCentimetros:" destination="sug-VF-zLY" eventType="editingChanged" id="Hpb-3c-8zx"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yKz-i6-6tt">
+                                        <rect key="frame" x="0.0" y="134" width="265" height="51"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milímetros:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXZ-6h-gNd">
+                                                <rect key="frame" x="0.0" y="0.0" width="265" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entre com a distância em milímetros" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WAM-dz-Syk">
+                                                <rect key="frame" x="0.0" y="21" width="265" height="30"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="editedMilimetros:" destination="sug-VF-zLY" eventType="editingChanged" id="iG7-gf-86S"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HMf-Tj-M70" firstAttribute="centerX" secondItem="cdY-zz-Afr" secondAttribute="centerX" id="cFz-aU-v2T"/>
+                            <constraint firstItem="HMf-Tj-M70" firstAttribute="centerY" secondItem="cdY-zz-Afr" secondAttribute="centerY" id="oxJ-5s-CYu"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Distância" image="regua" id="BsW-Xp-Olq"/>
+                    <navigationItem key="navigationItem" title="Distância" id="NM0-mm-dfI"/>
+                    <connections>
+                        <outlet property="txtCentimetros" destination="cF5-Hb-hdL" id="kEw-LO-HDI"/>
+                        <outlet property="txtMetros" destination="caO-EC-vmK" id="yZm-34-tto"/>
+                        <outlet property="txtMilimetros" destination="WAM-dz-Syk" id="XB4-9g-v5T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XKW-Ds-DXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-243" y="717"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="regua" width="32" height="32"/>
+        <image name="termometro" width="32" height="32"/>
+    </resources>
+</document>

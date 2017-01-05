@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NaipeEspadas: UIView {
+@IBDesignable class NaipeEspadas: UIView {
 	
 	private let HEART_REDUCTION : CGFloat = 0.1
 	

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NaipeOuro: UIView {
+@IBDesignable class NaipeOuro: UIView {
 	
 	override func drawRect(rect: CGRect)
 	{

@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		978ECEAA1E15ACF000CCB828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978ECEA91E15ACF000CCB828 /* AppDelegate.swift */; };
-		978ECEAC1E15ACF000CCB828 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978ECEAB1E15ACF000CCB828 /* ViewController.swift */; };
 		978ECEAF1E15ACF000CCB828 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 978ECEAD1E15ACF000CCB828 /* Main.storyboard */; };
 		978ECEB11E15ACF000CCB828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 978ECEB01E15ACF000CCB828 /* Assets.xcassets */; };
+		97CB695C1E1C19CA007B74A8 /* TemperaturaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CB695B1E1C19CA007B74A8 /* TemperaturaViewController.swift */; };
+		97CB695E1E1C1A13007B74A8 /* DistanciaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CB695D1E1C1A13007B74A8 /* DistanciaViewController.swift */; };
+		97CB69601E1C1E3C007B74A8 /* TemperaturaCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CB695F1E1C1E3C007B74A8 /* TemperaturaCalculator.swift */; };
+		97CB69621E1C249F007B74A8 /* DistanciaCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CB69611E1C249F007B74A8 /* DistanciaCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		978ECEA61E15ACF000CCB828 /* Conversor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conversor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		978ECEA61E15ACF000CCB828 /* ConversorTabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConversorTabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		978ECEA91E15ACF000CCB828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		978ECEAB1E15ACF000CCB828 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		978ECEAE1E15ACF000CCB828 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		978ECEB01E15ACF000CCB828 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		978ECEB51E15ACF000CCB828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97CB695B1E1C19CA007B74A8 /* TemperaturaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperaturaViewController.swift; sourceTree = "<group>"; };
+		97CB695D1E1C1A13007B74A8 /* DistanciaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanciaViewController.swift; sourceTree = "<group>"; };
+		97CB695F1E1C1E3C007B74A8 /* TemperaturaCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperaturaCalculator.swift; sourceTree = "<group>"; };
+		97CB69611E1C249F007B74A8 /* DistanciaCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanciaCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +50,7 @@
 		978ECEA71E15ACF000CCB828 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				978ECEA61E15ACF000CCB828 /* Conversor.app */,
+				978ECEA61E15ACF000CCB828 /* ConversorTabs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,8 +59,12 @@
 			isa = PBXGroup;
 			children = (
 				978ECEBB1E15AD0400CCB828 /* Suporte */,
-				978ECEAB1E15ACF000CCB828 /* ViewController.swift */,
 				978ECEAD1E15ACF000CCB828 /* Main.storyboard */,
+				97CB695B1E1C19CA007B74A8 /* TemperaturaViewController.swift */,
+				97CB695F1E1C1E3C007B74A8 /* TemperaturaCalculator.swift */,
+				97CB695D1E1C1A13007B74A8 /* DistanciaViewController.swift */,
+				97CB69611E1C249F007B74A8 /* DistanciaCalculator.swift */,
+				978ECEB01E15ACF000CCB828 /* Assets.xcassets */,
 			);
 			path = Conversor;
 			sourceTree = "<group>";
@@ -63,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				978ECEA91E15ACF000CCB828 /* AppDelegate.swift */,
-				978ECEB01E15ACF000CCB828 /* Assets.xcassets */,
 				978ECEB51E15ACF000CCB828 /* Info.plist */,
 			);
 			name = Suporte;
@@ -72,9 +81,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		978ECEA51E15ACF000CCB828 /* Conversor */ = {
+		978ECEA51E15ACF000CCB828 /* ConversorTabs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 978ECEB81E15ACF000CCB828 /* Build configuration list for PBXNativeTarget "Conversor" */;
+			buildConfigurationList = 978ECEB81E15ACF000CCB828 /* Build configuration list for PBXNativeTarget "ConversorTabs" */;
 			buildPhases = (
 				978ECEA21E15ACF000CCB828 /* Sources */,
 				978ECEA31E15ACF000CCB828 /* Frameworks */,
@@ -84,9 +93,9 @@
 			);
 			dependencies = (
 			);
-			name = Conversor;
+			name = ConversorTabs;
 			productName = Conversor;
-			productReference = 978ECEA61E15ACF000CCB828 /* Conversor.app */;
+			productReference = 978ECEA61E15ACF000CCB828 /* ConversorTabs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +113,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 978ECEA11E15ACF000CCB828 /* Build configuration list for PBXProject "Conversor" */;
+			buildConfigurationList = 978ECEA11E15ACF000CCB828 /* Build configuration list for PBXProject "ConversorTabs" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -117,7 +126,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				978ECEA51E15ACF000CCB828 /* Conversor */,
+				978ECEA51E15ACF000CCB828 /* ConversorTabs */,
 			);
 		};
 /* End PBXProject section */
@@ -139,8 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				978ECEAC1E15ACF000CCB828 /* ViewController.swift in Sources */,
+				97CB69601E1C1E3C007B74A8 /* TemperaturaCalculator.swift in Sources */,
+				97CB69621E1C249F007B74A8 /* DistanciaCalculator.swift in Sources */,
 				978ECEAA1E15ACF000CCB828 /* AppDelegate.swift in Sources */,
+				97CB695C1E1C19CA007B74A8 /* TemperaturaViewController.swift in Sources */,
+				97CB695E1E1C1A13007B74A8 /* DistanciaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,8 +259,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Conversor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.Conversor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.ConversorTabs;
+				PRODUCT_NAME = ConversorTabs;
 			};
 			name = Debug;
 		};
@@ -258,15 +270,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Conversor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.Conversor;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.ConversorTabs;
+				PRODUCT_NAME = ConversorTabs;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		978ECEA11E15ACF000CCB828 /* Build configuration list for PBXProject "Conversor" */ = {
+		978ECEA11E15ACF000CCB828 /* Build configuration list for PBXProject "ConversorTabs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				978ECEB61E15ACF000CCB828 /* Debug */,
@@ -275,13 +287,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		978ECEB81E15ACF000CCB828 /* Build configuration list for PBXNativeTarget "Conversor" */ = {
+		978ECEB81E15ACF000CCB828 /* Build configuration list for PBXNativeTarget "ConversorTabs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				978ECEB91E15ACF000CCB828 /* Debug */,
 				978ECEBA1E15ACF000CCB828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

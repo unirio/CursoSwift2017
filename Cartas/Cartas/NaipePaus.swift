@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NaipePaus: UIView {
+@IBDesignable class NaipePaus: UIView {
 	
 	private let HEART_REDUCTION : CGFloat = 0.1
 	
