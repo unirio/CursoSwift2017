@@ -10,8 +10,5 @@ import UIKit
 
 class ViewController: UIViewController {
 
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//		let destination = segue.destinationViewController
-	}
 }
 

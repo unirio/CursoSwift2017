@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="szQ-Qo-KNf">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--ConversorNavigatores-->
+        <!--Conversores-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Conversor" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ConversorNavigator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -31,7 +32,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <state key="normal" title="Temperatura"/>
                                                         <connections>
-                                                            <segue destination="IyI-YJ-eo2" kind="showDetail" identifier="mostraTemperatura" id="FlZ-sR-aVO"/>
+                                                            <segue destination="lip-Ab-0pM" kind="show" identifier="Go Temperatura" id="xfB-ul-vbg"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyS-ts-2pp">
@@ -40,7 +41,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <state key="normal" title="Distância"/>
                                                         <connections>
-                                                            <segue destination="b3W-D3-vCa" kind="showDetail" identifier="mostraDistancia" id="IfZ-HH-Osz"/>
+                                                            <segue destination="VXo-ZB-LD7" kind="show" identifier="Go Distancia" id="P4D-n2-J0O"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -60,7 +61,7 @@
                             <constraint firstItem="oMP-Oc-EyD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="G9X-YT-raN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ConversorNavigatores" id="7Vd-zt-vHF"/>
+                    <navigationItem key="navigationItem" title="Conversores" id="7Vd-zt-vHF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +73,7 @@
                 <splitViewController id="szQ-Qo-KNf" sceneMemberID="viewController">
                     <connections>
                         <segue destination="pCz-b4-hC9" kind="relationship" relationship="masterViewController" id="HT7-Xb-K6u"/>
-                        <segue destination="IyI-YJ-eo2" kind="relationship" relationship="detailViewController" id="wtt-8M-1Ze"/>
+                        <segue destination="lip-Ab-0pM" kind="relationship" relationship="detailViewController" id="DUi-RF-QaQ"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvS-IU-HLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,7 +83,7 @@
         <!--Temperatura-->
         <scene sceneID="OjM-Rm-1JM">
             <objects>
-                <viewController id="ezM-Ea-AmW" customClass="TemperaturaViewController" customModule="Conversor" sceneMemberID="viewController">
+                <viewController id="ezM-Ea-AmW" customClass="TemperaturaViewController" customModule="ConversorNavigator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="594-aK-DJ7"/>
                         <viewControllerLayoutGuide type="bottom" id="qJS-eC-ukC"/>
@@ -175,12 +176,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA3-Bu-rNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="385" y="1841"/>
+            <point key="canvasLocation" x="385" y="1827"/>
         </scene>
         <!--Distância-->
         <scene sceneID="hkP-wp-Vgg">
             <objects>
-                <viewController id="sug-VF-zLY" customClass="DistanciaViewController" customModule="Conversor" sceneMemberID="viewController">
+                <viewController id="sug-VF-zLY" customClass="DistanciaViewController" customModule="ConversorNavigator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D2r-Z0-QhO"/>
                         <viewControllerLayoutGuide type="bottom" id="zKB-1K-LAE"/>
@@ -278,13 +279,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKW-Ds-DXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="1841"/>
+            <point key="canvasLocation" x="1253" y="1827"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="xWt-xD-rU5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pCz-b4-hC9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Qb5-Vv-4YX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tr4-I3-ePn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -300,48 +300,46 @@
             </objects>
             <point key="canvasLocation" x="385" y="217"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="Qna-Vg-tFp">
+        <!--Navigation Controller-->
+        <scene sceneID="YpE-n0-LZb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IyI-YJ-eo2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gTd-jA-dsy"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lip-Ab-0pM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9nd-sN-dbZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cUj-gi-XIT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ezM-Ea-AmW" kind="relationship" relationship="rootViewController" id="KoF-gA-HYZ"/>
+                        <segue destination="ezM-Ea-AmW" kind="relationship" relationship="rootViewController" id="cEJ-u3-Jra"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Aqb-4O-Xqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LEP-dR-uSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="385" y="1013"/>
+            <point key="canvasLocation" x="385" y="1063"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="bis-7i-mvQ">
+        <!--Navigation Controller-->
+        <scene sceneID="9F3-Qj-7kF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b3W-D3-vCa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="IX6-Ko-5av"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VXo-ZB-LD7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tHh-v1-gzE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytW-8A-U1D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="sug-VF-zLY" kind="relationship" relationship="rootViewController" id="7sK-dI-PT3"/>
+                        <segue destination="sug-VF-zLY" kind="relationship" relationship="rootViewController" id="pGe-XI-OGW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="web-hw-3OL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vWL-ao-10t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="1013"/>
+            <point key="canvasLocation" x="1253" y="1055"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FlZ-sR-aVO"/>
+        <segue reference="xfB-ul-vbg"/>
     </inferredMetricsTieBreakers>
 </document>

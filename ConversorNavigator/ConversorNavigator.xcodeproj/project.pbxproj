@@ -263,7 +263,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Conversor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.Conversor;
+				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.ConversorNavigator;
 				PRODUCT_NAME = ConversorNavigator;
 			};
 			name = Debug;
@@ -274,7 +274,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Conversor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.Conversor;
+				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.ConversorNavigator;
 				PRODUCT_NAME = ConversorNavigator;
 			};
 			name = Release;
