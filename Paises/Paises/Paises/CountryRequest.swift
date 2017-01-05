@@ -11,6 +11,12 @@ import Foundation
 public class CountryRequest {
 	
 	//
+	// Inicializa o objeto
+	//
+	public init() {
+	}
+	
+	//
 	// Captura os identificadores de todos os países
 	//
 	public func getCountryIdentifiers(callback: ([CountryIdentifier]) -> Void) -> Void {

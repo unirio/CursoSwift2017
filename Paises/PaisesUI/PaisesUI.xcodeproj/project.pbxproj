@@ -12,6 +12,7 @@
 		97BB0E971E1EAD1000175622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97BB0E951E1EAD1000175622 /* Main.storyboard */; };
 		97BB0E991E1EAD1000175622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BB0E981E1EAD1000175622 /* Assets.xcassets */; };
 		97BB0E9C1E1EAD1000175622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97BB0E9A1E1EAD1000175622 /* LaunchScreen.storyboard */; };
+		97BB0ED21E1F0C6C00175622 /* Paises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BB0ED11E1F0C6C00175622 /* Paises.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		97BB0E981E1EAD1000175622 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97BB0E9B1E1EAD1000175622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97BB0E9D1E1EAD1000175622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97BB0ED11E1F0C6C00175622 /* Paises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Paises.framework; path = "../Paises/build/Debug-iphoneos/Paises.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97BB0ED21E1F0C6C00175622 /* Paises.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +41,7 @@
 		97BB0E851E1EAD1000175622 = {
 			isa = PBXGroup;
 			children = (
+				97BB0ED11E1F0C6C00175622 /* Paises.framework */,
 				97BB0E901E1EAD1000175622 /* PaisesUI */,
 				97BB0E8F1E1EAD1000175622 /* Products */,
 			);
