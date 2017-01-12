@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		975706961E255F6600E0F2DB /* Paises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975706951E255F6600E0F2DB /* Paises.framework */; };
+		9757069A1E256C3400E0F2DB /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975706991E256C3400E0F2DB /* CountryListViewController.swift */; };
+		9757069C1E25897800E0F2DB /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9757069B1E25897800E0F2DB /* CountryViewController.swift */; };
+		97720C251E2647450047D8EF /* EnergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97720C241E2647450047D8EF /* EnergyViewController.swift */; };
+		97720C271E264D830047D8EF /* GeographyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97720C261E264D830047D8EF /* GeographyViewController.swift */; };
+		97720C291E2652130047D8EF /* EconomyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97720C281E2652130047D8EF /* EconomyViewController.swift */; };
 		97BB0E921E1EAD1000175622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E911E1EAD1000175622 /* AppDelegate.swift */; };
-		97BB0E941E1EAD1000175622 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E931E1EAD1000175622 /* ViewController.swift */; };
 		97BB0E971E1EAD1000175622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97BB0E951E1EAD1000175622 /* Main.storyboard */; };
 		97BB0E991E1EAD1000175622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BB0E981E1EAD1000175622 /* Assets.xcassets */; };
 		97BB0E9C1E1EAD1000175622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97BB0E9A1E1EAD1000175622 /* LaunchScreen.storyboard */; };
-		97BB0ED21E1F0C6C00175622 /* Paises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BB0ED11E1F0C6C00175622 /* Paises.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		975706951E255F6600E0F2DB /* Paises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Paises.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Paises-dwqpbiysubowiharjudtnblpvtgi/Build/Products/Debug-iphoneos/Paises.framework"; sourceTree = "<group>"; };
+		975706991E256C3400E0F2DB /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
+		9757069B1E25897800E0F2DB /* CountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
+		97720C241E2647450047D8EF /* EnergyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyViewController.swift; sourceTree = "<group>"; };
+		97720C261E264D830047D8EF /* GeographyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeographyViewController.swift; sourceTree = "<group>"; };
+		97720C281E2652130047D8EF /* EconomyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EconomyViewController.swift; sourceTree = "<group>"; };
 		97BB0E8E1E1EAD1000175622 /* PaisesUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaisesUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BB0E911E1EAD1000175622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		97BB0E931E1EAD1000175622 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		97BB0E961E1EAD1000175622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97BB0E981E1EAD1000175622 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97BB0E9B1E1EAD1000175622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97BB0E9D1E1EAD1000175622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97BB0ED11E1F0C6C00175622 /* Paises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Paises.framework; path = "../Paises/build/Debug-iphoneos/Paises.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97BB0ED21E1F0C6C00175622 /* Paises.framework in Frameworks */,
+				975706961E255F6600E0F2DB /* Paises.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,7 +49,7 @@
 		97BB0E851E1EAD1000175622 = {
 			isa = PBXGroup;
 			children = (
-				97BB0ED11E1F0C6C00175622 /* Paises.framework */,
+				975706951E255F6600E0F2DB /* Paises.framework */,
 				97BB0E901E1EAD1000175622 /* PaisesUI */,
 				97BB0E8F1E1EAD1000175622 /* Products */,
 			);
@@ -59,8 +67,13 @@
 			isa = PBXGroup;
 			children = (
 				97BB0ED01E1F0A7200175622 /* Suporte */,
-				97BB0E931E1EAD1000175622 /* ViewController.swift */,
 				97BB0E951E1EAD1000175622 /* Main.storyboard */,
+				97BB0E981E1EAD1000175622 /* Assets.xcassets */,
+				975706991E256C3400E0F2DB /* CountryListViewController.swift */,
+				9757069B1E25897800E0F2DB /* CountryViewController.swift */,
+				97720C241E2647450047D8EF /* EnergyViewController.swift */,
+				97720C261E264D830047D8EF /* GeographyViewController.swift */,
+				97720C281E2652130047D8EF /* EconomyViewController.swift */,
 			);
 			path = PaisesUI;
 			sourceTree = "<group>";
@@ -71,7 +84,6 @@
 				97BB0E9D1E1EAD1000175622 /* Info.plist */,
 				97BB0E911E1EAD1000175622 /* AppDelegate.swift */,
 				97BB0E9A1E1EAD1000175622 /* LaunchScreen.storyboard */,
-				97BB0E981E1EAD1000175622 /* Assets.xcassets */,
 			);
 			name = Suporte;
 			sourceTree = "<group>";
@@ -108,6 +120,7 @@
 				TargetAttributes = {
 					97BB0E8D1E1EAD1000175622 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = VX9GKDQWBW;
 					};
 				};
 			};
@@ -147,8 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97BB0E941E1EAD1000175622 /* ViewController.swift in Sources */,
+				97720C251E2647450047D8EF /* EnergyViewController.swift in Sources */,
+				9757069A1E256C3400E0F2DB /* CountryListViewController.swift in Sources */,
+				97720C271E264D830047D8EF /* GeographyViewController.swift in Sources */,
+				97720C291E2652130047D8EF /* EconomyViewController.swift in Sources */,
 				97BB0E921E1EAD1000175622 /* AppDelegate.swift in Sources */,
+				9757069C1E25897800E0F2DB /* CountryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,10 +276,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PaisesUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.paisesui.PaisesUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -270,10 +290,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PaisesUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.paisesui.PaisesUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

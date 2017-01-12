@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97720C2C1E2658070047D8EF /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97720C2B1E2658070047D8EF /* Continent.swift */; };
+		97720C2E1E2659580047D8EF /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97720C2D1E2659580047D8EF /* Country.swift */; };
 		97BB0EB11E1EAD5800175622 /* Paises.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BB0EB01E1EAD5800175622 /* Paises.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97BB0EB81E1EAD5800175622 /* Paises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BB0EAD1E1EAD5800175622 /* Paises.framework */; };
 		97BB0EBD1E1EAD5800175622 /* CountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0EBC1E1EAD5800175622 /* CountryTests.swift */; };
-		97BB0EC81E1EADF400175622 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0EC71E1EADF400175622 /* Country.swift */; };
+		97BB0EC81E1EADF400175622 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0EC71E1EADF400175622 /* CountryData.swift */; };
 		97BB0ECB1E1EB19100175622 /* CountryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0ECA1E1EB19100175622 /* CountryRequest.swift */; };
 		97BB0ECD1E1EC9B900175622 /* CountryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0ECC1E1EC9B900175622 /* CountryParser.swift */; };
-		97BB0ECF1E1F099500175622 /* CountryIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0ECE1E1F099500175622 /* CountryIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,16 +28,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97720C2B1E2658070047D8EF /* Continent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Continent.swift; sourceTree = "<group>"; };
+		97720C2D1E2659580047D8EF /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		97BB0EAD1E1EAD5800175622 /* Paises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Paises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BB0EB01E1EAD5800175622 /* Paises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Paises.h; sourceTree = "<group>"; };
 		97BB0EB21E1EAD5800175622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97BB0EB71E1EAD5800175622 /* PaisesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaisesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BB0EBC1E1EAD5800175622 /* CountryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTests.swift; sourceTree = "<group>"; };
 		97BB0EBE1E1EAD5800175622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97BB0EC71E1EADF400175622 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		97BB0EC71E1EADF400175622 /* CountryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
 		97BB0ECA1E1EB19100175622 /* CountryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryRequest.swift; sourceTree = "<group>"; };
 		97BB0ECC1E1EC9B900175622 /* CountryParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryParser.swift; sourceTree = "<group>"; };
-		97BB0ECE1E1F099500175622 /* CountryIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +83,11 @@
 			children = (
 				97BB0EB01E1EAD5800175622 /* Paises.h */,
 				97BB0EB21E1EAD5800175622 /* Info.plist */,
-				97BB0EC71E1EADF400175622 /* Country.swift */,
-				97BB0ECE1E1F099500175622 /* CountryIdentifier.swift */,
+				97BB0EC71E1EADF400175622 /* CountryData.swift */,
+				97720C2D1E2659580047D8EF /* Country.swift */,
 				97BB0ECA1E1EB19100175622 /* CountryRequest.swift */,
 				97BB0ECC1E1EC9B900175622 /* CountryParser.swift */,
+				97720C2B1E2658070047D8EF /* Continent.swift */,
 			);
 			path = Paises;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				TargetAttributes = {
 					97BB0EAC1E1EAD5800175622 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = VX9GKDQWBW;
 					};
 					97BB0EB61E1EAD5800175622 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -207,8 +211,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				97BB0ECB1E1EB19100175622 /* CountryRequest.swift in Sources */,
-				97BB0ECF1E1F099500175622 /* CountryIdentifier.swift in Sources */,
-				97BB0EC81E1EADF400175622 /* Country.swift in Sources */,
+				97720C2C1E2658070047D8EF /* Continent.swift in Sources */,
+				97BB0EC81E1EADF400175622 /* CountryData.swift in Sources */,
+				97720C2E1E2659580047D8EF /* Country.swift in Sources */,
 				97BB0ECD1E1EC9B900175622 /* CountryParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +330,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -334,6 +341,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.paises.Paises;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -343,6 +351,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -352,6 +362,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.paises.Paises;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

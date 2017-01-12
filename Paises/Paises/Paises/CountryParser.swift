@@ -13,9 +13,9 @@ class CountryParser {
 	//
 	// Método principal de captura dos dados de um país
 	//
-	func execute(content: String) -> Country {
+	func execute(content: String) -> CountryDetails {
 		
-		let country = Country()
+		let country = CountryDetails()
 		
 		parseName(content, country: country)
 		parseTotalArea(content, country: country)
@@ -55,7 +55,7 @@ class CountryParser {
 	//
 	// Captura as informações na forma de string
 	//
-	private func parseString(pattern: String, content: String, country: Country, callback: (Country, String) -> Void) -> Bool {
+	private func parseString(pattern: String, content: String, country: CountryDetails, callback: (CountryDetails, String) -> Void) -> Bool {
 		let regex = try! NSRegularExpression(pattern: pattern, options: [.CaseInsensitive])
 		let range = NSMakeRange(0, content.characters.count)
 
@@ -71,7 +71,7 @@ class CountryParser {
 	//
 	// Captura as informações na forma de uma lista separada por vírgulas
 	//
-	private func parseStringList(pattern: String, content: String, country: Country, callback: (Country, String) -> Void) -> Bool {
+	private func parseStringList(pattern: String, content: String, country: CountryDetails, callback: (CountryDetails, String) -> Void) -> Bool {
 		let regex = try! NSRegularExpression(pattern: pattern, options: [.CaseInsensitive])
 		let range = NSMakeRange(0, content.characters.count)
 
@@ -94,32 +94,32 @@ class CountryParser {
 	//
 	// Captura o nome
 	//
-	private func parseName(content: String, country: Country) -> Bool {
+	private func parseName(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<span class=\"region_name1 countryName \">(.+)</span>"
-		return parseString(pattern, content: content, country: country, callback: { $0.Name = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.name = $1 })
 	}
 	
 	//
 	// Captura a área total
 	//
-	private func parseTotalArea(content: String, country: Country) -> Bool {
+	private func parseTotalArea(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Area:.+?<\\/div>\\s*<div><span class=category>total: </span><span class=category_data>(.+)</span></div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.AreaTotal = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.totalArea = $1 })
 	}
 	
 	//
 	// Captura o perímetro total
 	//
-	private func parseLandBoundaries(content: String, country: Country) -> Bool {
+	private func parseLandBoundaries(content: String, country: CountryDetails) -> Bool {
 		let patternBasic = "<div.+?Land boundaries:.+?<\\/div>\\s*<div><span class=category>.*?total: </span><span class=category_data>(.+)</span></div>"
 
-		if parseString(patternBasic, content: content, country: country, callback: { $0.LandBoundaries = $1 }) {
+		if parseString(patternBasic, content: content, country: country, callback: { $0.landBoundaries = $1 }) {
 			return true
 		}
 
 		let patternSimple = "<div.+?Land boundaries:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
 
-		if parseString(patternSimple, content: content, country: country, callback: { $0.LandBoundaries = $1 }) {
+		if parseString(patternSimple, content: content, country: country, callback: { $0.landBoundaries = $1 }) {
 			return true
 		}
 		
@@ -129,16 +129,16 @@ class CountryParser {
 	//
 	// Captura o perímetro de costas marítimas
 	//
-	private func parseCoastlinePerimeter(content: String, country: Country) -> Bool {
+	private func parseCoastlinePerimeter(content: String, country: CountryDetails) -> Bool {
 		let patternBasic = "<div.+?Coastline:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
 
-		if parseString(patternBasic, content: content, country: country, callback: { $0.CoastlinePerimeter = $1 }) {
+		if parseString(patternBasic, content: content, country: country, callback: { $0.coastlinePerimeter = $1 }) {
 			return true
 		}
 		
 		let patternCompound = "<div.+?Coastline:.+?<\\/div>\\s*<div><span class=category>.*?total: </span><span class=category_data>(.+)</span></div>"
 
-		if parseString(patternCompound, content: content, country: country, callback: { $0.CoastlinePerimeter = $1 }) {
+		if parseString(patternCompound, content: content, country: country, callback: { $0.coastlinePerimeter = $1 }) {
 			return true
 		}
 		
@@ -148,16 +148,16 @@ class CountryParser {
 	//
 	// Captura os recursos naturais
 	//
-	private func parseNaturalResources(content: String, country: Country) -> Bool {
+	private func parseNaturalResources(content: String, country: CountryDetails) -> Bool {
 		let patternBasic = "<div.+?Natural resources:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
 
-		if parseStringList(patternBasic, content: content, country: country, callback: { $0.NaturalResources.append($1) }) {
+		if parseStringList(patternBasic, content: content, country: country, callback: { $0.naturalResources.append($1) }) {
 			return true
 		}
 		
 		let patternCompound = "<div.+?Natural resources:.+?<\\/div>\\s*<div><span class=category>.*?: </span><span class=category_data>(.+)</span></div>"
 
-		if parseStringList(patternCompound, content: content, country: country, callback: { $0.NaturalResources.append($1) }) {
+		if parseStringList(patternCompound, content: content, country: country, callback: { $0.naturalResources.append($1) }) {
 			return true
 		}
 		
@@ -169,17 +169,17 @@ class CountryParser {
 	//
 	// Captura o população total
 	//
-	private func parsePopulation(content: String, country: Country) -> Bool {
+	private func parsePopulation(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Population:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.Population = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.population = $1 })
 	}
 	
 	//
 	// Captura a expectativa média de vida
 	//
-	private func parseLifeExpectancy(content: String, country: Country) -> Bool {
+	private func parseLifeExpectancy(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Life expectancy at birth:.+?<\\/div>\\s*<div><span class=category>total population: </span><span class=category_data>(.+)</span></div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.LifeExpectancy = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.lifeExpectancy = $1 })
 	}
 	
 	// MARK: economia
@@ -187,15 +187,15 @@ class CountryParser {
 	//
 	// Captura o produto interno bruto
 	//
-	private func parseGrossDomesticProduct(content: String, country: Country) -> Bool {
+	private func parseGrossDomesticProduct(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?GDP \\(official exchange rate\\):.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.GrossDomesticProduct = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.grossDomesticProduct = $1 })
 	}
 	
 	//
 	// Captura os principais componentes do GDP
 	//
-	private func parseGrossDomesticProductComposition(content: String, country: Country) -> Bool {
+	private func parseGrossDomesticProductComposition(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?GDP - composition, by sector of origin:.+?<\\/div>\\s*(.+?)\\s*<div id='field'"
 		let aContent = content.stringByReplacingOccurrencesOfString("\n", withString: " ", options: NSStringCompareOptions.LiteralSearch, range: nil)
 		return parseString(pattern, content: aContent, country: country, callback: { self.parseCompositionComponents($0, content: $1) })
@@ -204,7 +204,7 @@ class CountryParser {
 	//
 	// Método interno para capturar os componentes do GDP
 	//
-	private func parseCompositionComponents(country: Country, content: String) {
+	private func parseCompositionComponents(country: CountryDetails, content: String) {
 		let pattern = "<div><span class=category>(.+?): <\\/span><span class=category_data>(.+?)%( \\(.*\\))?<\\/span>"
 		let regex = try! NSRegularExpression(pattern: pattern, options: [.CaseInsensitive])
 		let range = NSMakeRange(0, content.characters.count)
@@ -214,8 +214,7 @@ class CountryParser {
 			let sector = (content as NSString).substringWithRange(match.rangeAtIndex(1))
 			
 			if let percentile = Double((content as NSString).substringWithRange(match.rangeAtIndex(2))) {
-				let component = CountryGrossDomesticProductComponent(sector: sector, percentile: percentile)
-				country.GrossDomesticProductComposition.append(component)
+				country.grossDomesticProductComposition.append((sector: sector, percentile: percentile))
 			}
 		}
 	}
@@ -223,41 +222,41 @@ class CountryParser {
 	//
 	// Captura o volume de dívida como um percentual do GDP
 	//
-	private func parsePublicDebt(content: String, country: Country) -> Bool {
+	private func parsePublicDebt(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Public debt:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.PublicDebt = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.publicDebt = $1 })
 	}
 	
 	//
 	// Captura o percentual do GDP investido em saúde
 	//
-	private func parseHealthExpenditure(content: String, country: Country) -> Bool {
+	private func parseHealthExpenditure(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Health expenditures:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.HealthExpenditure = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.healthExpenditure = $1 })
 	}
 	
 	//
 	// Captura o percentual do GDP investido em educação
 	//
-	private func parseEducationExpenditure(content: String, country: Country) -> Bool {
+	private func parseEducationExpenditure(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Education expenditures:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.EducationExpenditure = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.educationExpenditure = $1 })
 	}
 
 	//
 	// Captura os principais produtos agrícolas
 	//
-	private func parseAgricultureProducts(content: String, country: Country) -> Bool {
+	private func parseAgricultureProducts(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Agriculture - products:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseStringList(pattern, content: content, country: country, callback: { $0.AgricultureProducts.append($1) })
+		return parseStringList(pattern, content: content, country: country, callback: { $0.agricultureProducts.append($1) })
 	}
 	
 	//
 	// Captura os principais produtos industriais
 	//
-	private func parseIndustries(content: String, country: Country) -> Bool {
+	private func parseIndustries(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Industries:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseStringList(pattern, content: content, country: country, callback: { $0.Industries.append($1) })
+		return parseStringList(pattern, content: content, country: country, callback: { $0.industries.append($1) })
 	}
 	
 	// MARK: setor elétrico
@@ -265,49 +264,49 @@ class CountryParser {
 	//
 	// Captura a produção elétrica total
 	//
-	private func parseEletricityProduction(content: String, country: Country) -> Bool {
+	private func parseEletricityProduction(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Electricity - production:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.EletricityProduction = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.eletricityProduction = $1 })
 	}
 	
 	//
 	// Captura o consumo elétrico total
 	//
-	private func parseEletricityConsumption(content: String, country: Country) -> Bool {
+	private func parseEletricityConsumption(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Electricity - consumption:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.EletricityConsumption = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.eletricityConsumption = $1 })
 	}
 	
 	//
 	// Captura a produção elétrica de fontes fósseis
 	//
-	private func parseEletricityFossil(content: String, country: Country) -> Bool {
+	private func parseEletricityFossil(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Electricity - from fossil fuels:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.EletricityFossil = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.eletricityFossil = $1 })
 	}
 	
 	//
 	// Captura a produção elétrica de fontes hidroelétricas
 	//
-	private func parseEletricityHydroeletric(content: String, country: Country) -> Bool {
+	private func parseEletricityHydroeletric(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Electricity - from hydroelectric plants:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.EletricityHydroeletric = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.eletricityHydroeletric = $1 })
 	}
 	
 	//
 	// Captura a produção elétrica de fontes nucleares
 	//
-	private func parseEletricityNuclearFuels(content: String, country: Country) -> Bool {
+	private func parseEletricityNuclearFuels(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Electricity - from nuclear fuels:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.EletricityNuclearFuels = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.eletricityNuclearFuels = $1 })
 	}
 	
 	//
 	// Captura a produção elétrica de fontes renováveis
 	//
-	private func parseEletricityRenewableSources(content: String, country: Country) -> Bool {
+	private func parseEletricityRenewableSources(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Electricity - from other renewable sources:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.EletricityRenewableSources = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.eletricityRenewableSources = $1 })
 	}
 	
 	// MARK: setor petróleo
@@ -315,32 +314,32 @@ class CountryParser {
 	//
 	// Captura o volume produzido de petróleo
 	//
-	private func parseCrudeOilProduction(content: String, country: Country) -> Bool {
+	private func parseCrudeOilProduction(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Crude oil - production:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.CrudeOilProduction = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.crudeOilProduction = $1 })
 	}
 	
 	//
 	// Captura o volume exportado de petróleo
 	//
-	private func parseCrudeOilExports(content: String, country: Country) -> Bool {
+	private func parseCrudeOilExports(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Crude oil - exports:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.CrudeOilExports = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.crudeOilExports = $1 })
 	}
 	
 	//
 	// Captura o volume importado de petróleo
 	//
-	private func parseCrudeOilImports(content: String, country: Country) -> Bool {
+	private func parseCrudeOilImports(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Crude oil - imports:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.CrudeOilImports = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.crudeOilImports = $1 })
 	}
 	
 	//
 	// Captura o volume de reservas de petróleo
 	//
-	private func parseCrudeOilProvedReserves(content: String, country: Country) -> Bool {
+	private func parseCrudeOilProvedReserves(content: String, country: CountryDetails) -> Bool {
 		let pattern = "<div.+?Crude oil - proved reserves:.+?<\\/div>\\s*<div class=category_data>(.+)</div>"
-		return parseString(pattern, content: content, country: country, callback: { $0.CrudeOilProvedReserves = $1 })
+		return parseString(pattern, content: content, country: country, callback: { $0.crudeOilProvedReserves = $1 })
 	}
 }

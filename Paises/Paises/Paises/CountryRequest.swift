@@ -11,56 +11,154 @@ import Foundation
 public class CountryRequest {
 	
 	//
+	// Mapeamento do código internacional de países para o código da CIA de países
+	//
+	private let countryMappings = [
+		"as": "aq",
+		"ad": "an",
+		"ai": "av",
+		"ag": "ac",
+		"dz": "ag",
+		"aw": "aa",
+		"au": "as",
+		"at": "au",
+		"az": "aj",
+		"bs": "bf",
+		"bh": "ba",
+		"bd": "bg",
+		"bz": "bh",
+		"bj": "bn",
+		"bm": "bd",
+		"by": "bo",
+		"bo": "bl",
+		"ba": "bk",
+		"bw": "bc",
+		"bn": "bx",
+		"bg": "bu",
+		"bf": "uv",
+		"mm": "bm",
+		"bi": "by",
+		"kh": "cb",
+		"cf": "ct",
+		"td": "cd",
+		"cl": "ci",
+		"cn": "ch",
+		"km": "cn",
+		"cg": "cf",
+		"cr": "cs",
+		"ci": "iv",
+		"cw": "cc",
+		"cz": "ez",
+		"cd": "cg",
+		"dk": "da",
+		"dm": "do",
+		"do": "dr",
+		"sv": "es",
+		"ee": "en",
+		"ph": "rp",
+		"ga": "gb",
+		"gm": "ga",
+		"ge": "gg",
+		"de": "gm",
+		"gd": "gj",
+		"gu": "gq",
+		"gg": "gk",
+		"gn": "gv",
+		"gw": "pu",
+		"gq": "gv",
+		"ht": "ha",
+		"hn": "ho",
+		"is": "ic",
+		"iq": "iz",
+		"ie": "ei",
+		"il": "is",
+		"jp": "ja",
+		"ki": "kr",
+		"kw": "ku",
+		"lb": "le",
+		"ls": "lt",
+		"lv": "lg",
+		"lr": "li",
+		"li": "ls",
+		"lt": "lh",
+		"mo": "mc",
+		"mg": "ma",
+		"mw": "mi",
+		"mu": "mp",
+		"mc": "mn",
+		"mn": "mg",
+		"me": "mj",
+		"ms": "mh",
+		"ma": "mo",
+		"na": "wa",
+		"ni": "nu",
+		"ne": "ng",
+		"ng": "ni",
+		"nu": "ne",
+		"kp": "kn",
+		"om": "mu",
+		"pw": "ps",
+		"pa": "pm",
+		"pg": "pp",
+		"py": "pa",
+		"pr": "rq",
+		"pt": "po",
+		"ru": "rs",
+		"bl": "tb",
+		"lc": "st",
+		"st": "tp",
+		"mf": "rn",
+		"sn": "sg",
+		"rs": "ri",
+		"sc": "se",
+		"sg": "sn",
+		"sk": "lo",
+		"za": "sf",
+		"kr": "ks",
+		"ss": "od",
+		"es": "sp",
+		"lk": "ce",
+		"sd": "su",
+		"sr": "ns",
+		"sj": "sv",
+		"sz": "wz",
+		"se": "sw",
+		"ch": "sz",
+		"tj": "ti",
+		"tl": "tt",
+		"tg": "to",
+		"tk": "tl",
+		"to": "tn",
+		"tt": "td",
+		"tn": "ts",
+		"tr": "tu",
+		"tm": "tx",
+		"ua": "up",
+		"gb": "uk",
+		"vu": "nh",
+		"vn": "vm",
+		"ye": "ym",
+		"zm": "za",
+		"zw": "zi"
+	]
+
+	//
 	// Inicializa o objeto
 	//
 	public init() {
 	}
 	
 	//
-	// Captura os identificadores de todos os países
-	//
-	public func getCountryIdentifiers(callback: ([CountryIdentifier]) -> Void) -> Void {
-		let url = NSURL(string: "https://www.cia.gov/library/publications/the-world-factbook/docs/refmaps.html")!
-		let request = NSURLRequest(URL: url)
-		let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-		let session = NSURLSession(configuration: config)
-		
-		let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
-			if error == nil {
-				if let contentData = data {
-					let content = self.convertDataString(contentData)
-					let pattern = "<option value=\"\\.\\.\\/geos\\/(\\w{2})\\.html\">\\s+(.*)?\\s+<\\/option>"
-					
-					let regex = try! NSRegularExpression(pattern: pattern, options: [.CaseInsensitive])
-					let range = NSMakeRange(0, content.characters.count)
-					let matches = regex.matchesInString(content, options: [], range: range)
-					
-					var result : [CountryIdentifier] = []
-					
-					for match in matches {
-						let code = (content as NSString).substringWithRange(match.rangeAtIndex(1))
-						let name = (content as NSString).substringWithRange(match.rangeAtIndex(2))
-						
-						let country = CountryIdentifier(code: code, name: name)
-						country.Code = code
-						country.Name = name
-						result.append(country)
-					}
-					
-					callback(result)
-				}
-			}
-			
-		});
-		
-		task.resume()
-	}
-	
-	//
 	// Captura as características de um país
 	//
-	public func getCountryData(code: String, callback: (Country) -> Void) -> Void {
-		let url = NSURL(string: "https://www.cia.gov/library/publications/the-world-factbook/geos/\(code).html")!
+	public func getCountryData(code: String, callback: (CountryDetails) -> Void) -> Void {
+		var countryCode = code
+		
+		if let ciaCode = countryMappings[code] {
+			countryCode = ciaCode
+		}
+
+		let url = NSURL(string: "https://www.cia.gov/library/publications/the-world-factbook/geos/\(countryCode).html")!
 		let request = NSURLRequest(URL: url)
 		let config = NSURLSessionConfiguration.defaultSessionConfiguration()
 		let session = NSURLSession(configuration: config)

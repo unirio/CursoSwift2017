@@ -1,56 +1,242 @@
 //
-//  Pais.swift
+//  Country.swift
 //  Paises
 //
-//  Created by Marcio Barros on 05/01/17.
+//  Created by Marcio Barros on 11/01/17.
 //  Copyright © 2017 br.unirio.ios. All rights reserved.
 //
 
 import Foundation
 
 public class Country {
+	public var name = ""
+	public var code = ""
+	public var continent : Continent
 	
-	public var Name = ""
-	public var AreaTotal = ""
-	public var LandBoundaries = ""
-	public var CoastlinePerimeter = ""
-	public var NaturalResources : [String] = []
-	
-	public var Population = ""
-	public var LifeExpectancy = ""
-	
-	public var GrossDomesticProduct = ""
-	public var GrossDomesticProductComposition : [CountryGrossDomesticProductComponent] = []
-	public var PublicDebt = ""
-	public var HealthExpenditure = ""
-	public var EducationExpenditure = ""
-	
-	public var AgricultureProducts : [String] = []
-	public var Industries : [String] = []
-	
-	public var EletricityProduction = ""
-	public var EletricityConsumption = ""
-	public var EletricityFossil = ""
-	public var EletricityHydroeletric = ""
-	public var EletricityNuclearFuels = ""
-	public var EletricityRenewableSources = ""
-	
-	public var CrudeOilProduction = ""
-	public var CrudeOilExports = ""
-	public var CrudeOilImports = ""
-	public var CrudeOilProvedReserves = ""
-}
-
-//
-// Classe que representa um componente de GDP de um país
-//
-public class CountryGrossDomesticProductComponent {
-	public var Sector = ""
-	public var Percentile = 0.0
-	
-	convenience init(sector: String, percentile: Double) {
-		self.init()
-		self.Sector	= sector
-		self.Percentile = percentile
+	//
+	// Inicializa um país
+	//
+	private init(name: String, code: String, continent: Continent) {
+		self.name = name
+		self.code = code
+		self.continent = continent
 	}
+	
+	//
+	// Todos os países do mundo
+	//
+	public static let allCountries : [Country] = [
+		Country(name: "Afghanistan", code: "af", continent: Continent.Asia),
+		Country(name: "Albania", code: "al", continent: Continent.Europe),
+		Country(name: "American Samoa", code: "as", continent: Continent.Oceania),
+		Country(name: "Andorra", code: "ad", continent: Continent.Europe),
+		Country(name: "Angola", code: "ao", continent: Continent.Africa),
+		Country(name: "Anguilla", code: "ai", continent: Continent.CentralAmerica),
+		Country(name: "Antigua and Barbuda", code: "ag", continent: Continent.CentralAmerica),
+		Country(name: "Algeria", code: "dz", continent: Continent.Africa),
+		Country(name: "Argentina", code: "ar", continent: Continent.SouthAmerica),
+		Country(name: "Armenia", code: "am", continent: Continent.Asia),
+		Country(name: "Aruba", code: "aw", continent: Continent.CentralAmerica),
+		Country(name: "Australia", code: "au", continent: Continent.Oceania),
+		Country(name: "Austria", code: "at", continent: Continent.Europe),
+		Country(name: "Azerbaijan", code: "az", continent: Continent.Asia),
+		Country(name: "Bahamas", code: "bs", continent: Continent.CentralAmerica),
+		Country(name: "Bahrain", code: "bh", continent: Continent.Asia),
+		Country(name: "Bangladesh", code: "bd", continent: Continent.Asia),
+		Country(name: "Barbados", code: "bb", continent: Continent.CentralAmerica),
+		Country(name: "Belgium", code: "be", continent: Continent.Europe),
+		Country(name: "Belize", code: "bz", continent: Continent.CentralAmerica),
+		Country(name: "Benin", code: "bj", continent: Continent.Africa),
+		Country(name: "Bermuda", code: "bm", continent: Continent.NorthAmerica),
+		Country(name: "Belarus", code: "by", continent: Continent.Europe),
+		Country(name: "Bolivia", code: "bo", continent: Continent.SouthAmerica),
+		Country(name: "Bosnia and Herzegovina", code: "ba", continent: Continent.Europe),
+		Country(name: "Botswana", code: "bw", continent: Continent.Africa),
+		Country(name: "Brazil", code: "br", continent: Continent.SouthAmerica),
+		Country(name: "Brunei", code: "bn", continent: Continent.Asia),
+		Country(name: "Bulgaria", code: "bg", continent: Continent.Europe),
+		Country(name: "Burkina Faso", code: "bf", continent: Continent.Africa),
+		Country(name: "Burma", code: "mm", continent: Continent.Asia),
+		Country(name: "Burundi", code: "bi", continent: Continent.Africa),
+		Country(name: "Bhutan", code: "bt", continent: Continent.Asia),
+		Country(name: "Cambodia", code: "kh", continent: Continent.Asia),
+		Country(name: "Cameroon", code: "cm", continent: Continent.Africa),
+		Country(name: "Canada", code: "ca", continent: Continent.NorthAmerica),
+		Country(name: "Cabo Verde", code: "cv", continent: Continent.Africa),
+		Country(name: "Central African Republic", code: "cf", continent: Continent.Africa),
+		Country(name: "Chad", code: "td", continent: Continent.Africa),
+		Country(name: "Chile", code: "cl", continent: Continent.SouthAmerica),
+		Country(name: "China", code: "cn", continent: Continent.Asia),
+		Country(name: "Colombia", code: "co", continent: Continent.SouthAmerica),
+		Country(name: "Comoros", code: "km", continent: Continent.Africa),
+		Country(name: "Congo", code: "cg", continent: Continent.Africa),
+		Country(name: "Costa Rica", code: "cr", continent: Continent.CentralAmerica),
+		Country(name: "Cote D'Ivoire", code: "ci", continent: Continent.Africa),
+		Country(name: "Croatia", code: "hr", continent: Continent.Europe),
+		Country(name: "Cuba", code: "cu", continent: Continent.CentralAmerica),
+		Country(name: "Curacao", code: "cw", continent: Continent.CentralAmerica),
+		Country(name: "Cyprus", code: "cy", continent: Continent.Europe),
+		Country(name: "Czech Republic", code: "cz", continent: Continent.Europe),
+		Country(name: "Democratic Republic of Congo", code: "cd", continent: Continent.Africa),
+		Country(name: "Denmark", code: "dk", continent: Continent.Europe),
+		Country(name: "Djibouti", code: "dj", continent: Continent.Africa),
+		Country(name: "Dominica", code: "dm", continent: Continent.CentralAmerica),
+		Country(name: "Dominican Republic", code: "do", continent: Continent.CentralAmerica),
+		Country(name: "Ecuador", code: "ec", continent: Continent.SouthAmerica),
+		Country(name: "Egypt", code: "eg", continent: Continent.Africa),
+		Country(name: "El Salvador", code: "sv", continent: Continent.CentralAmerica),
+		Country(name: "Eritrea", code: "er", continent: Continent.Africa),
+		Country(name: "Estonia", code: "ee", continent: Continent.Europe),
+		Country(name: "Ethiopia", code: "et", continent: Continent.Africa),
+		Country(name: "Fiji", code: "fj", continent: Continent.Oceania),
+		Country(name: "Finland", code: "fi", continent: Continent.Europe),
+		Country(name: "France", code: "fr", continent: Continent.Europe),
+		Country(name: "Gabon", code: "ga", continent: Continent.Africa),
+		Country(name: "Gambia", code: "gm", continent: Continent.Africa),
+		Country(name: "Georgia", code: "ge", continent: Continent.Asia),
+		Country(name: "Germany", code: "de", continent: Continent.Europe),
+		Country(name: "Ghana", code: "gh", continent: Continent.Africa),
+		Country(name: "Gibraltar", code: "gi", continent: Continent.Europe),
+		Country(name: "Grenada", code: "gd", continent: Continent.CentralAmerica),
+		Country(name: "Greece", code: "gr", continent: Continent.Europe),
+		Country(name: "Greenland", code: "gl", continent: Continent.NorthAmerica),
+		Country(name: "Guam", code: "gu", continent: Continent.Oceania),
+		Country(name: "Guatemala", code: "gt", continent: Continent.CentralAmerica),
+		Country(name: "Guernsey", code: "gg", continent: Continent.Europe),
+		Country(name: "Guyana", code: "gy", continent: Continent.SouthAmerica),
+		Country(name: "Guinea", code: "gn", continent: Continent.Africa),
+		Country(name: "Guinea-Bissau", code: "gw", continent: Continent.Africa),
+		Country(name: "Guinea", code: "gq", continent: Continent.Africa),
+		Country(name: "Haiti", code: "ht", continent: Continent.CentralAmerica),
+		Country(name: "Honduras", code: "hn", continent: Continent.CentralAmerica),
+		Country(name: "Hong Kong", code: "hk", continent: Continent.Asia),
+		Country(name: "Hungary", code: "hu", continent: Continent.Europe),
+		Country(name: "Iceland", code: "is", continent: Continent.Europe),
+		Country(name: "India", code: "in", continent: Continent.Asia),
+		Country(name: "Indonesia", code: "id", continent: Continent.Asia),
+		Country(name: "Iraq", code: "iq", continent: Continent.Asia),
+		Country(name: "Iran", code: "ir", continent: Continent.Asia),
+		Country(name: "Ireland", code: "ie", continent: Continent.Europe),
+		Country(name: "Israel", code: "il", continent: Continent.Asia),
+		Country(name: "Italy", code: "it", continent: Continent.Europe),
+		Country(name: "Jamaica", code: "jm", continent: Continent.CentralAmerica),
+		Country(name: "Japan", code: "jp", continent: Continent.Asia),
+		Country(name: "jersey", code: "je", continent: Continent.Europe),
+		Country(name: "Jordan", code: "jo", continent: Continent.Asia),
+		Country(name: "Kazakhstan", code: "kz", continent: Continent.Asia),
+		Country(name: "Kenya", code: "ke", continent: Continent.Africa),
+		Country(name: "Kiribati", code: "ki", continent: Continent.Oceania),
+		Country(name: "Kuwait", code: "kw", continent: Continent.Asia),
+		Country(name: "Kyrgyzstan", code: "kg", continent: Continent.Asia),
+		Country(name: "Laos", code: "la", continent: Continent.Asia),
+		Country(name: "Lebanon", code: "lb", continent: Continent.Asia),
+		Country(name: "Lesotho", code: "ls", continent: Continent.Africa),
+		Country(name: "Latvia", code: "lv", continent: Continent.Europe),
+		Country(name: "liberia", code: "lr", continent: Continent.Africa),
+		Country(name: "Libya", code: "ly", continent: Continent.Africa),
+		Country(name: "Liechtenstein", code: "li", continent: Continent.Europe),
+		Country(name: "Lithuania", code: "lt", continent: Continent.Europe),
+		Country(name: "Luxembourg", code: "lu", continent: Continent.Europe),
+		Country(name: "Macau", code: "mo", continent: Continent.Asia),
+		Country(name: "Macedonia", code: "mk", continent: Continent.Europe),
+		Country(name: "Madagascar", code: "mg", continent: Continent.Africa),
+		Country(name: "Malawi", code: "mw", continent: Continent.Africa),
+		Country(name: "Malaysia", code: "my", continent: Continent.Asia),
+		Country(name: "Maldives", code: "mv", continent: Continent.Asia),
+		Country(name: "Mali", code: "ml", continent: Continent.Africa),
+		Country(name: "Malta", code: "mt", continent: Continent.Europe),
+		Country(name: "Mauritius", code: "mu", continent: Continent.Africa),
+		Country(name: "Mauritania", code: "mr", continent: Continent.Africa),
+		Country(name: "Mexico", code: "mx", continent: Continent.CentralAmerica),
+		Country(name: "Micronesia", code: "fm", continent: Continent.Oceania),
+		Country(name: "Moldova", code: "md", continent: Continent.Europe),
+		Country(name: "Monaco", code: "mc", continent: Continent.Europe),
+		Country(name: "Mongolia", code: "mn", continent: Continent.Asia),
+		Country(name: "Montenegro", code: "me", continent: Continent.Europe),
+		Country(name: "Montserrat", code: "ms", continent: Continent.CentralAmerica),
+		Country(name: "Morocco", code: "ma", continent: Continent.Africa),
+		Country(name: "Mozambique", code: "mz", continent: Continent.Africa),
+		Country(name: "Namibia", code: "na", continent: Continent.Africa),
+		Country(name: "Nauru", code: "nr", continent: Continent.Oceania),
+		Country(name: "Nepal", code: "np", continent: Continent.Asia),
+		Country(name: "Netherlands", code: "nl", continent: Continent.Europe),
+		Country(name: "New Zealand", code: "nz", continent: Continent.Oceania),
+		Country(name: "Nicaragua", code: "ni", continent: Continent.CentralAmerica),
+		Country(name: "Niger", code: "ne", continent: Continent.Africa),
+		Country(name: "Nigeria", code: "ng", continent: Continent.Africa),
+		Country(name: "Niue", code: "nu", continent: Continent.Oceania),
+		Country(name: "Norfolk Island", code: "nf", continent: Continent.Oceania),
+		Country(name: "North Korea", code: "kp", continent: Continent.Asia),
+		Country(name: "Norway", code: "no", continent: Continent.Europe),
+		Country(name: "Oman", code: "om", continent: Continent.Asia),
+		Country(name: "Pakistan", code: "pk", continent: Continent.Asia),
+		Country(name: "Palau", code: "pw", continent: Continent.Oceania),
+		Country(name: "Panama", code: "pa", continent: Continent.CentralAmerica),
+		Country(name: "Papua New Guinea", code: "pg", continent: Continent.Oceania),
+		Country(name: "Paraguay", code: "py", continent: Continent.SouthAmerica),
+		Country(name: "Peru", code: "pe", continent: Continent.SouthAmerica),
+		Country(name: "Philippines", code: "ph", continent: Continent.Asia),
+		Country(name: "Poland", code: "pl", continent: Continent.Europe),
+		Country(name: "Portugal", code: "pt", continent: Continent.Europe),
+		Country(name: "Puerto Rico", code: "pr", continent: Continent.CentralAmerica),
+		Country(name: "Qatar", code: "qa", continent: Continent.Asia),
+		Country(name: "Romania", code: "ro", continent: Continent.Europe),
+		Country(name: "Russia", code: "ru", continent: Continent.Europe),
+		Country(name: "Rwanda", code: "rw", continent: Continent.Africa),
+		Country(name: "Saint Barthelemy", code: "bl", continent: Continent.CentralAmerica),
+		Country(name: "Saint Helena", code: "sh", continent: Continent.CentralAmerica),
+		Country(name: "Saint Lucia", code: "lc", continent: Continent.CentralAmerica),
+		Country(name: "Sao Tome and Principe", code: "st", continent: Continent.Africa),
+		Country(name: "Samoa", code: "ws", continent: Continent.Oceania),
+		Country(name: "San Marino", code: "sm", continent: Continent.Europe),
+		Country(name: "Saint Martin", code: "mf", continent: Continent.CentralAmerica),
+		Country(name: "Saudi Arabia", code: "sa", continent: Continent.Asia),
+		Country(name: "Senegal", code: "sn", continent: Continent.Africa),
+		Country(name: "Serbia", code: "rs", continent: Continent.Europe),
+		Country(name: "Sierra Leone", code: "sl", continent: Continent.Africa),
+		Country(name: "Seychelles", code: "sc", continent: Continent.Africa),
+		Country(name: "Singapore", code: "sg", continent: Continent.Asia),
+		Country(name: "Slovakia", code: "sk", continent: Continent.Europe),
+		Country(name: "Slovenia", code: "si", continent: Continent.Europe),
+		Country(name: "Somalia", code: "so", continent: Continent.Africa),
+		Country(name: "South Africa", code: "za", continent: Continent.Africa),
+		Country(name: "South Korea", code: "kr", continent: Continent.Asia),
+		Country(name: "South Sudan", code: "ss", continent: Continent.Africa),
+		Country(name: "Spain", code: "es", continent: Continent.Europe),
+		Country(name: "Sri Lanka", code: "lk", continent: Continent.Asia),
+		Country(name: "Sudan", code: "sd", continent: Continent.Africa),
+		Country(name: "Suriname", code: "sr", continent: Continent.SouthAmerica),
+		Country(name: "Svalbard", code: "sj", continent: Continent.Europe),
+		Country(name: "Swaziland", code: "sz", continent: Continent.Africa),
+		Country(name: "Sweden", code: "se", continent: Continent.Europe),
+		Country(name: "Syria", code: "sy", continent: Continent.Asia),
+		Country(name: "Switzerland", code: "ch", continent: Continent.Europe),
+		Country(name: "Thailand", code: "th", continent: Continent.Asia),
+		Country(name: "Taiwan", code: "tw", continent: Continent.Asia),
+		Country(name: "Tajikistan", code: "tj", continent: Continent.Asia),
+		Country(name: "Tanzania", code: "tz", continent: Continent.Africa),
+		Country(name: "Timor-Leste", code: "tl", continent: Continent.Asia),
+		Country(name: "Togo", code: "tg", continent: Continent.Africa),
+		Country(name: "Tokelau", code: "tk", continent: Continent.Oceania),
+		Country(name: "Tonga", code: "to", continent: Continent.Oceania),
+		Country(name: "Trinidad and Tobago", code: "tt", continent: Continent.CentralAmerica),
+		Country(name: "Tunisia", code: "tn", continent: Continent.Africa),
+		Country(name: "Turkey", code: "tr", continent: Continent.Europe),
+		Country(name: "Turkmenistan", code: "tm", continent: Continent.Asia),
+		Country(name: "Tuvalu", code: "tv", continent: Continent.Oceania),
+		Country(name: "Ukraine", code: "ua", continent: Continent.Europe),
+		Country(name: "Uganda", code: "ug", continent: Continent.Africa),
+		Country(name: "United Arab Emirates", code: "ae", continent: Continent.Asia),
+		Country(name: "United Kingdom", code: "gb", continent: Continent.Europe),
+		Country(name: "United States", code: "us", continent: Continent.NorthAmerica),
+		Country(name: "Uruguay", code: "uy", continent: Continent.SouthAmerica),
+		Country(name: "Uzbekistan", code: "uz", continent: Continent.Asia),
+		Country(name: "Vanuatu", code: "vu", continent: Continent.Oceania),
+		Country(name: "Venezuela", code: "ve", continent: Continent.SouthAmerica),
+		Country(name: "Vietnam", code: "vn", continent: Continent.Asia),
+		Country(name: "Wallis and Futuna", code: "wf", continent: Continent.Oceania),
+		Country(name: "Yemen", code: "ye", continent: Continent.Asia),
+		Country(name: "Zambia", code: "zm", continent: Continent.Africa),
+		Country(name: "Zimbabwe", code: "zw", continent: Continent.Africa)
+	]
 }
