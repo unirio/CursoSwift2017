@@ -113,6 +113,7 @@
 				TargetAttributes = {
 					978ECEA51E15ACF000CCB828 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -265,6 +266,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.ConversorNavigator;
 				PRODUCT_NAME = ConversorNavigator;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -276,6 +278,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.unirio.ios.ConversorNavigator;
 				PRODUCT_NAME = ConversorNavigator;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

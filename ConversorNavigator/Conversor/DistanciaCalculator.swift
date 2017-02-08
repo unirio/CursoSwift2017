@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class DistanciaCalculator {
+open class DistanciaCalculator {
 	
-	private var distanciaMilimetros = 0.0
+	fileprivate var distanciaMilimetros = 0.0
 	
-	public var Metros : Double {
+	open var Metros : Double {
 		get {
 			return distanciaMilimetros / 1000.0
 		}
@@ -21,7 +21,7 @@ public class DistanciaCalculator {
 		}
 	}
 	
-	public var Centimetros : Double {
+	open var Centimetros : Double {
 		get {
 			return distanciaMilimetros / 10.0
 		}
@@ -30,7 +30,7 @@ public class DistanciaCalculator {
 		}
 	}
 	
-	public var Milimetros : Double {
+	open var Milimetros : Double {
 		get {
 			return distanciaMilimetros
 		}

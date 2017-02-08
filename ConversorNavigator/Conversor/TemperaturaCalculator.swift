@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class TemperaturaCalculator {
+open class TemperaturaCalculator {
 	
-	private var temperaturaKelvin = 0.0
+	fileprivate var temperaturaKelvin = 0.0
 	
-	public var Celsius : Double {
+	open var Celsius : Double {
 		get {
 			return temperaturaKelvin - 273.15
 		}
@@ -21,7 +21,7 @@ public class TemperaturaCalculator {
 		}
 	}
 	
-	public var Fahrenheit : Double {
+	open var Fahrenheit : Double {
 		get {
 			return temperaturaKelvin * 9.0 / 5.0 - 459.67
 		}
@@ -30,7 +30,7 @@ public class TemperaturaCalculator {
 		}
 	}
 	
-	public var Kelvin : Double {
+	open var Kelvin : Double {
 		get {
 			return temperaturaKelvin
 		}
