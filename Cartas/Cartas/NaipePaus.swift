@@ -13,7 +13,7 @@ import UIKit
 	
 	private let HEART_REDUCTION : CGFloat = 0.1
 	
-	override func drawRect(rect: CGRect)
+	override func draw(_ rect: CGRect)
 	{
 		let centerSquareSide = min(bounds.size.width, bounds.size.height)
 		let centerSquareX = (bounds.size.width - centerSquareSide) / 2
@@ -25,15 +25,15 @@ import UIKit
 		let clubHeight = centerSquareSide * (1 - 3 * HEART_REDUCTION)
 		
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(clubX + clubWidth / 2, clubY))
+		path.move(to: CGPoint(x: clubX + clubWidth / 2, y: clubY))
 		
-		path.addArcWithCenter(CGPointMake(clubX + clubWidth / 2, clubY + clubHeight / 4),
+		path.addArc(withCenter: CGPoint(x: clubX + clubWidth / 2, y: clubY + clubHeight / 4),
 			radius: clubWidth / 4,
 			startAngle: -CGFloat(M_PI) / 2,
 			endAngle: CGFloat(M_PI) / 2 * 10 / 8,
 			clockwise: false)
 		
-		path.addArcWithCenter(CGPointMake(clubX + clubWidth / 4, clubY + clubHeight * 3 / 4),
+		path.addArc(withCenter: CGPoint(x: clubX + clubWidth / 4, y: clubY + clubHeight * 3 / 4),
 			radius: clubWidth / 4,
 			startAngle: -CGFloat(M_PI) / 2 * 6 / 8,
 			endAngle: CGFloat(M_PI) / 6.0,
@@ -43,34 +43,34 @@ import UIKit
 		let leftLegX = clubX + clubWidth / 4 + clubWidth / 4 * cossine
 		let rightLegX = clubX + clubWidth * 3 / 4 - clubWidth / 4 * cossine
 		
-		path.addLineToPoint(CGPointMake(leftLegX, clubY + clubHeight))
+		path.addLine(to: CGPoint(x: leftLegX, y: clubY + clubHeight))
 		
-		path.addCurveToPoint(CGPointMake(clubX + clubWidth / 4, centerSquareY + centerSquareSide),
-			controlPoint1: CGPointMake(leftLegX, centerSquareY + centerSquareSide),
-			controlPoint2: CGPointMake(clubX + clubWidth / 4, centerSquareY + centerSquareSide))
+		path.addCurve(to: CGPoint(x: clubX + clubWidth / 4, y: centerSquareY + centerSquareSide),
+			controlPoint1: CGPoint(x: leftLegX, y: centerSquareY + centerSquareSide),
+			controlPoint2: CGPoint(x: clubX + clubWidth / 4, y: centerSquareY + centerSquareSide))
 		
-		path.addLineToPoint(CGPointMake(clubX + clubWidth * 3 / 4, centerSquareY + centerSquareSide))
+		path.addLine(to: CGPoint(x: clubX + clubWidth * 3 / 4, y: centerSquareY + centerSquareSide))
 		
-		path.addCurveToPoint(CGPointMake(rightLegX, clubY + clubHeight),
-			controlPoint1: CGPointMake(clubX + clubWidth * 3 / 4, centerSquareY + centerSquareSide),
-			controlPoint2: CGPointMake(rightLegX, centerSquareY + centerSquareSide))
+		path.addCurve(to: CGPoint(x: rightLegX, y: clubY + clubHeight),
+			controlPoint1: CGPoint(x: clubX + clubWidth * 3 / 4, y: centerSquareY + centerSquareSide),
+			controlPoint2: CGPoint(x: rightLegX, y: centerSquareY + centerSquareSide))
 		
-		path.addLineToPoint(CGPointMake(rightLegX, clubY + clubHeight))
+		path.addLine(to: CGPoint(x: rightLegX, y: clubY + clubHeight))
 		
-		path.addArcWithCenter(CGPointMake(clubX + clubWidth * 3 / 4, clubY + clubHeight * 3 / 4),
+		path.addArc(withCenter: CGPoint(x: clubX + clubWidth * 3 / 4, y: clubY + clubHeight * 3 / 4),
 			radius: clubWidth / 4,
 			startAngle: CGFloat(M_PI) * 5.0 / 6.0,
 			endAngle: -CGFloat(M_PI) / 2 * 10 / 8,
 			clockwise: false)
 				
-		path.addArcWithCenter(CGPointMake(clubX + clubWidth / 2, clubY + clubHeight / 4),
+		path.addArc(withCenter: CGPoint(x: clubX + clubWidth / 2, y: clubY + clubHeight / 4),
 			radius: clubWidth / 4,
 			startAngle: -CGFloat(M_PI) / 2 * 10 / 8 + CGFloat(M_PI),
 			endAngle: -CGFloat(M_PI) / 2,
 			clockwise: false)
 
-		path.closePath()
-		UIColor.blackColor().set()
+		path.close()
+		UIColor.black.set()
 		path.fill()
 	}
 }

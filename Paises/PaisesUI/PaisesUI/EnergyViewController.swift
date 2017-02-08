@@ -18,7 +18,7 @@ class EnergyViewController: UITableViewController {
 	private var crudeOil : [(String, String)] = [];
 	
 	// Indica o país representado na aba
-	func setCountry(country : CountryDetails) {
+	func setCountry(_ country : CountryDetails) {
 		eletricity = []
 		eletricity.append(("Eletricity production", dataToUserRepresentation(country.eletricityProduction)))
 		eletricity.append(("Eletricity comsumption", dataToUserRepresentation(country.eletricityConsumption)))
@@ -37,17 +37,17 @@ class EnergyViewController: UITableViewController {
 	}
 
 	// Converte uma string para um formato legível pelo usuário
-	private func dataToUserRepresentation(data: String) -> String {
+	fileprivate func dataToUserRepresentation(_ data: String) -> String {
 		return (data.isEmpty) ? "Unknown" : data
 	}
 
 	// Retorna o número de seções da tabela
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 	
 	// Retorna o título de cada seção
-	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 0 {
 			return "Eletricity"
 		}
@@ -60,7 +60,7 @@ class EnergyViewController: UITableViewController {
 	}
 
 	// Retorna o número de linhas de cada seção
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
 			return eletricity.count
 		}
@@ -73,8 +73,8 @@ class EnergyViewController: UITableViewController {
     }
 
 	// Cria as colunas da tabela
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(basicCellIdentifier, forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: basicCellIdentifier, for: indexPath)
 		
 		if indexPath.section == 0 {
 			cell.textLabel?.text = eletricity[indexPath.row].0

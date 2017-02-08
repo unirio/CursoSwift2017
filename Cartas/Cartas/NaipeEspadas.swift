@@ -12,7 +12,7 @@ import UIKit
 	
 	private let HEART_REDUCTION : CGFloat = 0.1
 	
-	override func drawRect(rect: CGRect)
+	override func draw(_ rect: CGRect)
 	{
 		let centerSquareSide = min(bounds.size.width, bounds.size.height)
 		let centerSquareX = (bounds.size.width - centerSquareSide) / 2
@@ -24,13 +24,13 @@ import UIKit
 		let heartHeight = centerSquareSide * (1 - HEART_REDUCTION)
 		
 		let path = UIBezierPath()
-		path.moveToPoint(CGPointMake(heartX + heartWidth / 2, heartY))
+		path.move(to: CGPoint(x: heartX + heartWidth / 2, y: heartY))
 		
-		path.addCurveToPoint(CGPointMake(heartX, heartY + heartHeight * 3 / 4),
-			controlPoint1: CGPointMake(heartX + heartWidth / 2, heartY + heartHeight / 4),
-			controlPoint2: CGPointMake(heartX, heartY + heartHeight / 2))
+		path.addCurve(to: CGPoint(x: heartX, y: heartY + heartHeight * 3 / 4),
+			controlPoint1: CGPoint(x: heartX + heartWidth / 2, y: heartY + heartHeight / 4),
+			controlPoint2: CGPoint(x: heartX, y: heartY + heartHeight / 2))
 		
-		path.addArcWithCenter(CGPointMake(heartX + heartWidth / 4, heartY + heartHeight * 3 / 4),
+		path.addArc(withCenter: CGPoint(x: heartX + heartWidth / 4, y: heartY + heartHeight * 3 / 4),
 			radius: heartWidth / 4,
 			startAngle: CGFloat(M_PI),
 			endAngle: CGFloat(M_PI) / 6.0,
@@ -40,32 +40,32 @@ import UIKit
 		let leftLegX = heartX + heartWidth / 4 + heartWidth / 4 * cossine
 		let rightLegX = heartX + heartWidth * 3 / 4 - heartWidth / 4 * cossine
 		
-		path.addLineToPoint(CGPointMake(leftLegX, heartY + heartHeight))
+		path.addLine(to: CGPoint(x: leftLegX, y: heartY + heartHeight))
 		
-		path.addCurveToPoint(CGPointMake(heartX + heartWidth / 4, centerSquareY + centerSquareSide),
-			controlPoint1: CGPointMake(leftLegX, centerSquareY + centerSquareSide),
-			controlPoint2: CGPointMake(heartX + heartWidth / 4, centerSquareY + centerSquareSide))
+		path.addCurve(to: CGPoint(x: heartX + heartWidth / 4, y: centerSquareY + centerSquareSide),
+			controlPoint1: CGPoint(x: leftLegX, y: centerSquareY + centerSquareSide),
+			controlPoint2: CGPoint(x: heartX + heartWidth / 4, y: centerSquareY + centerSquareSide))
 		
-		path.addLineToPoint(CGPointMake(heartX + heartWidth * 3 / 4, centerSquareY + centerSquareSide))
+		path.addLine(to: CGPoint(x: heartX + heartWidth * 3 / 4, y: centerSquareY + centerSquareSide))
 		
-		path.addCurveToPoint(CGPointMake(rightLegX, heartY + heartHeight),
-			controlPoint1: CGPointMake(heartX + heartWidth * 3 / 4, centerSquareY + centerSquareSide),
-			controlPoint2: CGPointMake(rightLegX, centerSquareY + centerSquareSide))
+		path.addCurve(to: CGPoint(x: rightLegX, y: heartY + heartHeight),
+			controlPoint1: CGPoint(x: heartX + heartWidth * 3 / 4, y: centerSquareY + centerSquareSide),
+			controlPoint2: CGPoint(x: rightLegX, y: centerSquareY + centerSquareSide))
 		
-		path.addLineToPoint(CGPointMake(rightLegX, heartY + heartHeight))
+		path.addLine(to: CGPoint(x: rightLegX, y: heartY + heartHeight))
 		
-		path.addArcWithCenter(CGPointMake(heartX + heartWidth * 3 / 4, heartY + heartHeight * 3 / 4),
+		path.addArc(withCenter: CGPoint(x: heartX + heartWidth * 3 / 4, y: heartY + heartHeight * 3 / 4),
 			radius: heartWidth / 4,
 			startAngle: CGFloat(M_PI) * 5.0 / 6.0,
 			endAngle: 0.0,
 			clockwise: false)
 		
-		path.addCurveToPoint(CGPointMake(heartX + heartWidth / 2, heartY),
-			controlPoint1: CGPointMake(heartX + heartWidth, heartY + heartHeight / 2),
-			controlPoint2: CGPointMake(heartX + heartWidth / 2, heartY + heartHeight / 4))
+		path.addCurve(to: CGPoint(x: heartX + heartWidth / 2, y: heartY),
+			controlPoint1: CGPoint(x: heartX + heartWidth, y: heartY + heartHeight / 2),
+			controlPoint2: CGPoint(x: heartX + heartWidth / 2, y: heartY + heartHeight / 4))
 		
-		path.closePath()
-		UIColor.blackColor().set()
+		path.close()
+		UIColor.black.set()
 		path.fill()
 	}
 }

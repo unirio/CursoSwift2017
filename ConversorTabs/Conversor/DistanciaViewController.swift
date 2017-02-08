@@ -18,7 +18,7 @@ class DistanciaViewController: UIViewController {
 
 	@IBOutlet weak var txtMilimetros: UITextField!
 
-	@IBAction func editedMetros(sender: UITextField) {
+	@IBAction func editedMetros(_ sender: UITextField) {
 		if let distancia = Double(sender.text!) {
 			calculador.Metros = distancia
 			txtCentimetros!.text = String(calculador.Centimetros)
@@ -27,7 +27,7 @@ class DistanciaViewController: UIViewController {
 	}
 
 
-	@IBAction func editedCentimetros(sender: UITextField) {
+	@IBAction func editedCentimetros(_ sender: UITextField) {
 		if let distancia = Double(sender.text!) {
 			calculador.Centimetros = distancia
 			txtMetros!.text = String(calculador.Metros)
@@ -35,7 +35,7 @@ class DistanciaViewController: UIViewController {
 		}
 	}
 
-	@IBAction func editedMilimetros(sender: UITextField) {
+	@IBAction func editedMilimetros(_ sender: UITextField) {
 		if let distancia = Double(sender.text!) {
 			calculador.Milimetros = distancia
 			txtMetros!.text = String(calculador.Metros)

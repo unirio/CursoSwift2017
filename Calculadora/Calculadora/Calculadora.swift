@@ -13,43 +13,43 @@ class Calculadora {
 	private var acumulador = 0.0
 	
 	private enum TipoOperacao {
-		case Constant(Double)
-		case UnaryOperation((Double) -> Double)
-		case BinaryOperation((Double, Double) -> Double)
-		case Equals
+		case constant(Double)
+		case unaryOperation((Double) -> Double)
+		case binaryOperation((Double, Double) -> Double)
+		case equals
 	}
 	
 	private var operacoes : Dictionary<String,TipoOperacao> =
 	[
-		"π"  : .Constant(M_PI),
-		"e"  : .Constant(M_E),
-		"R"  : .UnaryOperation(sqrt),
-		"cos": .UnaryOperation(cos),
-		"+"  : .BinaryOperation(soma),
-		"-"  : .BinaryOperation(subtracao),
-		"/"  : .BinaryOperation(divisao),
-		"*"  : .BinaryOperation(produto),
-		"="  : .Equals
+		"π"  : .constant(M_PI),
+		"e"  : .constant(M_E),
+		"R"  : .unaryOperation(sqrt),
+		"cos": .unaryOperation(cos),
+		"+"  : .binaryOperation(soma),
+		"-"  : .binaryOperation(subtracao),
+		"/"  : .binaryOperation(divisao),
+		"*"  : .binaryOperation(produto),
+		"="  : .equals
 	]
 	
-	func setOperando(operando: Double) {
+	func setOperando(_ operando: Double) {
 		self.acumulador = operando
 	}
 	
-	func executaOperacao(simbolo: String) {
+	func executaOperacao(_ simbolo: String) {
 		if let operacao	= operacoes[simbolo] {
 			switch operacao {
-			case .Constant(let value):
+			case .constant(let value):
 				acumulador = value
 
-			case .UnaryOperation(let function):
+			case .unaryOperation(let function):
 				acumulador = function(acumulador)
 
-			case .BinaryOperation(let function):
+			case .binaryOperation(let function):
 				executaOperacaoBinariaPendente()
 				pendencia = DadosOperacaoBinariaPendente(operador: function, operando: acumulador)
 				
-			case .Equals:
+			case .equals:
 				executaOperacaoBinariaPendente()
 			}
 		}

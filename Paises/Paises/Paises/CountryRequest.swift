@@ -151,19 +151,19 @@ public class CountryRequest {
 	//
 	// Captura as características de um país
 	//
-	public func getCountryData(code: String, callback: (CountryDetails) -> Void) -> Void {
+	public func getCountryData(_ code: String, callback: @escaping (CountryDetails) -> Void) -> Void {
 		var countryCode = code
 		
 		if let ciaCode = countryMappings[code] {
 			countryCode = ciaCode
 		}
 
-		let url = NSURL(string: "https://www.cia.gov/library/publications/the-world-factbook/geos/\(countryCode).html")!
-		let request = NSURLRequest(URL: url)
-		let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-		let session = NSURLSession(configuration: config)
+		let url = URL(string: "https://www.cia.gov/library/publications/the-world-factbook/geos/\(countryCode).html")!
+		let request = URLRequest(url: url)
+		let config = URLSessionConfiguration.default
+		let session = URLSession(configuration: config)
 
-		let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+		let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
 			if error == nil {
 				if let contentData = data {
 					let content = self.convertDataString(contentData)
@@ -179,13 +179,13 @@ public class CountryRequest {
 	//
 	// Converte o resultado de uma consulta Web em uma string
 	//
-	private func convertDataString(data: NSData) -> String {
-		if let content = String(data: data, encoding: NSUTF8StringEncoding) {
+	private func convertDataString(_ data: Data) -> String {
+		if let content = String(data: data, encoding: String.Encoding.utf8) {
 			return content
 		}
 		
 		let content = NSMutableString()
-		let bytes = UnsafeBufferPointer<UInt8>(start: UnsafePointer(data.bytes), count: data.length)
+		let bytes = UnsafeBufferPointer<UInt8>(start: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count), count: data.count)
 
 		for byte in bytes {
 			content.appendFormat("%02hhx", byte)

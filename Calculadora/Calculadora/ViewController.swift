@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 	
 	private var calculadora = Calculadora()
 	
-	@IBAction func touchDigit(sender: UIButton) {
+	@IBAction func touchDigit(_ sender: UIButton) {
 		let digito = sender.currentTitle!
 		
 		if self.usuarioDigitando {
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 		}
 	}
 	
-	@IBAction func performOperation(sender: UIButton) {
+	@IBAction func performOperation(_ sender: UIButton) {
 		if usuarioDigitando {
 			calculadora.setOperando(displayValue)
 			usuarioDigitando = false

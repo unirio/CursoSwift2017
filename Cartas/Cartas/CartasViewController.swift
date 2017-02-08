@@ -12,8 +12,8 @@ class CartasViewController: UIViewController {
 
 	@IBOutlet weak var naipe: NaipePaus!
 	
-	override func viewDidAppear(animated: Bool) {
-		naipe.transform = CGAffineTransformMakeRotation(CGFloat(M_PI) * 3 / 4)
+	override func viewDidAppear(_ animated: Bool) {
+		naipe.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI) * 3 / 4)
 	}
 
 }

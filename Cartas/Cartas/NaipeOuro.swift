@@ -10,18 +10,18 @@ import UIKit
 
 @IBDesignable class NaipeOuro: UIView {
 	
-	override func drawRect(rect: CGRect)
+	override func draw(_ rect: CGRect)
 	{
 		let center = CGPoint(x: bounds.midX, y: bounds.midY)
 		
 		let path = UIBezierPath()
-		path.moveToPoint(CGPoint(x: bounds.minX, y: center.y))
-		path.addLineToPoint(CGPoint(x: center.x, y: bounds.minY))
-		path.addLineToPoint(CGPoint(x: bounds.maxX, y: center.y))
-		path.addLineToPoint(CGPoint(x: center.x, y: bounds.maxY))
-		path.addLineToPoint(CGPoint(x: bounds.minX, y: center.y))
+		path.move(to: CGPoint(x: bounds.minX, y: center.y))
+		path.addLine(to: CGPoint(x: center.x, y: bounds.minY))
+		path.addLine(to: CGPoint(x: bounds.maxX, y: center.y))
+		path.addLine(to: CGPoint(x: center.x, y: bounds.maxY))
+		path.addLine(to: CGPoint(x: bounds.minX, y: center.y))
 
-		UIColor.redColor().set()
+		UIColor.red.set()
 		path.fill()
 	}
 }

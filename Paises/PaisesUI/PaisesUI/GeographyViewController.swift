@@ -22,7 +22,7 @@ class GeographyViewController: UITableViewController {
 	private var population : [(String, String)] = [];
 	
 	// Indica o país representado na aba
-	func setCountry(country : CountryDetails) {
+	func setCountry(_ country : CountryDetails) {
 		areas = []
 		areas.append(("Total area", dataToUserRepresentation(country.totalArea)))
 		areas.append(("Land boundaries", dataToUserRepresentation(country.landBoundaries)))
@@ -38,17 +38,17 @@ class GeographyViewController: UITableViewController {
 	}
 	
 	// Converte uma string para um formato legível pelo usuário
-	private func dataToUserRepresentation(data: String) -> String {
+	private func dataToUserRepresentation(_ data: String) -> String {
 		return (data.isEmpty) ? "Unknown" : data
 	}
 	
 	// Retorna o número de seções da tabela
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 3
 	}
 	
 	// Retorna o título de cada seção
-	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 0 {
 			return "Areas"
 		}
@@ -65,7 +65,7 @@ class GeographyViewController: UITableViewController {
 	}
 	
 	// Retorna o número de linhas de cada seção
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
 			return areas.count
 		}
@@ -82,21 +82,21 @@ class GeographyViewController: UITableViewController {
 	}
 	
 	// Cria as colunas da tabela
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.section == 0 {
-			let cell = tableView.dequeueReusableCellWithIdentifier(detailCellIdentifier, forIndexPath: indexPath)
+			let cell = tableView.dequeueReusableCell(withIdentifier: detailCellIdentifier, for: indexPath)
 			cell.textLabel?.text = areas[indexPath.row].0
 			cell.detailTextLabel?.text = areas[indexPath.row].1
 			return cell
 		}
 		
 		if indexPath.section == 1 {
-			let cell = tableView.dequeueReusableCellWithIdentifier(basicCellIdentifier, forIndexPath: indexPath)
+			let cell = tableView.dequeueReusableCell(withIdentifier: basicCellIdentifier, for: indexPath)
 			cell.textLabel?.text = naturalResources[indexPath.row]
 			return cell
 		}
 		
-		let cell = tableView.dequeueReusableCellWithIdentifier(detailCellIdentifier, forIndexPath: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: detailCellIdentifier, for: indexPath)
 		cell.textLabel?.text = population[indexPath.row].0
 		cell.detailTextLabel?.text = population[indexPath.row].1
 		return cell
