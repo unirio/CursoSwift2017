@@ -27,10 +27,10 @@ class ItemDAO {
 	// Carrega todos os items registrados
 	func carregaItems() -> [Item] {
 		let context = getContext()
-		let request = NSFetchRequest<Item>(entityName: "Item")
+		let request : NSFetchRequest<Item> = Item.fetchRequest()
 		request.fetchBatchSize = 1000
 		request.fetchLimit = 1000
-				
+
 		do {
 			return try context.fetch(request)
 		}
@@ -79,7 +79,6 @@ class ItemDAO {
 	func removeItem(item: Item) {
 		let context = getContext()
 		context.delete(item)
-		try! context.save()
 		
 		do {
 			try context.save()
