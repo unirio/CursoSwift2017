@@ -1,5 +1,5 @@
 //
-//  ExportadorModelo.swift
+//  ExportadorListaMercado.swift
 //  ListaMercadoJSON
 //
 //  Created by Marcio Barros on 17/02/17.
@@ -8,19 +8,19 @@
 
 import Foundation
 
-class ExportadorModelo {
+class ExportadorListaMercado {
 	
 	// Exporta o modelo para JSON
-	func toJson(modelo: Modelo) -> JSONObject {
+	func toJson(lista: ListaMercado) -> JSONObject {
 		var jsonSecoes = JSONArray()
 		
-		for secao in modelo.secoes {
+		for secao in lista.secoes {
 			jsonSecoes.append(toJson(secao: secao))
 		}
 		
 		var jsonItems = JSONArray()
 		
-		for item in modelo.items {
+		for item in lista.items {
 			jsonItems.append(toJson(item: item))
 		}
 		

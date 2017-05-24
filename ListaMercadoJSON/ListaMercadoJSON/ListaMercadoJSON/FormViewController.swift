@@ -12,7 +12,7 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	
 	var item : Item?
 	
-	var modelo : Modelo?
+	var listaMercado : ListaMercado?
 
 	@IBOutlet weak var editNome: UITextField!
 	
@@ -34,7 +34,7 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 			editSecao.text = oItem.secao.nome
 			editQuantidade.text = "\(oItem.quantidade)"
 			
-			if let row = modelo!.pegaIndiceSecao(secao: oItem.secao) {
+			if let row = listaMercado!.pegaIndiceSecao(secao: oItem.secao) {
 				pickerSecao.selectRow(row, inComponent: 0, animated: true)
 			}
 		}
@@ -47,17 +47,17 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	
 	// Programa o numero de linhas na combo
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return modelo!.secoes.count
+		return listaMercado!.secoes.count
 	}
 	
 	// Pega a informacao de uma linha da combo
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		return modelo!.secoes[row].nome
+		return listaMercado!.secoes[row].nome
 	}
 	
 	// Preenche a linha de edicao quando seleciona uma secao
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		editSecao.text = modelo!.secoes[row].nome
+		editSecao.text = listaMercado!.secoes[row].nome
 	}
 	
 	// Apresenta a combo quando seleciona a linha de secao
@@ -78,7 +78,7 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	
 	// Pega a secao selecionada
 	func pegaSecaoSelecionada() -> Secao? {
-		return modelo!.secoes.filter({$0.nome == editSecao.text!}).first
+		return listaMercado!.secoes.filter({$0.nome == editSecao.text!}).first
 	}
 	
 	// Apresenta uma mensagem de erro
@@ -116,11 +116,11 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 		}
 		else {
 			let item = Item(nome: nome!, quantidade: quantidade!, secao: secao!)
-			modelo!.items.append(item)
+			listaMercado!.items.append(item)
 		}
 		
 		let fileManager = FileHelper(fileName: "modelo.json")
-		fileManager.save(json: ExportadorModelo().toJson(modelo: modelo!))
+		fileManager.save(json: ExportadorListaMercado().toJson(lista: listaMercado!))
 		_ = navigationController?.popViewController(animated: true)
 	}
 }

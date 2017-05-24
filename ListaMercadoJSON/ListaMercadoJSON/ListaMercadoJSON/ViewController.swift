@@ -8,36 +8,26 @@
 
 import UIKit
 
-// http://www.learncoredata.com/icloud-key-value-store/
-
-// http://www.learncoredata.com/nsfetchedresultscontroller-swift/
-
-// http://www.learncoredata.com/how-to-save-files-part-1/
-
-// http://www.learncoredata.com/how-to-save-files-part-2/
-
-// http://www.learncoredata.com/how-to-use-nsuserdefaults/
-
 class ViewController: UITableViewController {
 
 	// Modelo da aplicacao
-	private var modelo = Modelo()
+	private var listaMercado = ListaMercado()
 
 	// Carrega as secoes e itens antes de abrir a tela
 	override func viewDidLoad() {
 		let fileManager = FileHelper(fileName: "modelo.json")
 		let jsonModelo = fileManager.loadJson()
-		ImportadorModelo().fromJson(json: jsonModelo, modelo: modelo)
+		ImportadorListaMercado().fromJson(json: jsonModelo, lista: listaMercado)
 		
-		if modelo.secoes.count == 0 {
-			modelo.secoes.append(Secao(nome: "Laticinios"));
-			modelo.secoes.append(Secao(nome: "Carnes e Aves"));
-			modelo.secoes.append(Secao(nome: "Cereais e Farinhas"));
-			modelo.secoes.append(Secao(nome: "Bebidas"));
-			modelo.secoes.append(Secao(nome: "Enlatados"));
-			modelo.secoes.append(Secao(nome: "Limpeza"));
-			modelo.secoes.append(Secao(nome: "Higiene"));
-			modelo.secoes.append(Secao(nome: "Frutas e Verduras"));
+		if listaMercado.secoes.count == 0 {
+			listaMercado.secoes.append(Secao(nome: "Laticinios"));
+			listaMercado.secoes.append(Secao(nome: "Carnes e Aves"));
+			listaMercado.secoes.append(Secao(nome: "Cereais e Farinhas"));
+			listaMercado.secoes.append(Secao(nome: "Bebidas"));
+			listaMercado.secoes.append(Secao(nome: "Enlatados"));
+			listaMercado.secoes.append(Secao(nome: "Limpeza"));
+			listaMercado.secoes.append(Secao(nome: "Higiene"));
+			listaMercado.secoes.append(Secao(nome: "Frutas e Verduras"));
 		}
 	}
 
@@ -53,14 +43,14 @@ class ViewController: UITableViewController {
 
 	// Programa o numero de linhas da tabela
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return modelo.items.count
+		return listaMercado.items.count
 	}
 	
 	// Programa uma celula da tabela
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "celula")!
-		cell.textLabel?.text = modelo.items[indexPath.row].nome
-		cell.detailTextLabel?.text = modelo.items[indexPath.row].secao.nome
+		cell.textLabel?.text = listaMercado.items[indexPath.row].nome
+		cell.detailTextLabel?.text = listaMercado.items[indexPath.row].secao.nome
 		return cell
 	}
 	
@@ -79,7 +69,7 @@ class ViewController: UITableViewController {
 	// Abre a tela para criar um novo item
 	@IBAction func addItem(_ sender: Any) {
 		let formController = self.storyboard?.instantiateViewController(withIdentifier: "FormViewController") as! FormViewController
-		formController.modelo = modelo
+		formController.listaMercado = listaMercado
 		navigationController?.pushViewController(formController, animated: true)
 	}
 	
@@ -87,17 +77,17 @@ class ViewController: UITableViewController {
 	func handleEdition(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
 		tableView.isEditing = false
 		let formController = self.storyboard?.instantiateViewController(withIdentifier: "FormViewController") as! FormViewController
-		formController.modelo = modelo
-		formController.item = modelo.items[indexPath.row]
+		formController.listaMercado = listaMercado
+		formController.item = listaMercado.items[indexPath.row]
 		navigationController?.pushViewController(formController, animated: true)
 	}
 	
 	// Remove um item
 	func handleDeletion(action: UITableViewRowAction, indexPath: IndexPath) -> Void {
 		tableView.isEditing = false
-		modelo.items.remove(at: indexPath.row)
+		listaMercado.items.remove(at: indexPath.row)
 		let fileManager = FileHelper(fileName: "modelo.json")
-		fileManager.save(json: ExportadorModelo().toJson(modelo: modelo))
+		fileManager.save(json: ExportadorListaMercado().toJson(lista: listaMercado))
 		tableView.reloadData()
 	}
 }

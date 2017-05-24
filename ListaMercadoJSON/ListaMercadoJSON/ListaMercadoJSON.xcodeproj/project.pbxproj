@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		977EF78E1E577C7D00504DD9 /* ExportadorModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EF78D1E577C7D00504DD9 /* ExportadorModelo.swift */; };
-		977EF7901E577D5800504DD9 /* ImportadorModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EF78F1E577D5800504DD9 /* ImportadorModelo.swift */; };
+		977EF78E1E577C7D00504DD9 /* ExportadorListaMercado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EF78D1E577C7D00504DD9 /* ExportadorListaMercado.swift */; };
+		977EF7901E577D5800504DD9 /* ImportadorListaMercado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EF78F1E577D5800504DD9 /* ImportadorListaMercado.swift */; };
 		977EF7921E57815A00504DD9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EF7911E57815A00504DD9 /* Item.swift */; };
 		977EF7941E57816200504DD9 /* Secao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EF7931E57816200504DD9 /* Secao.swift */; };
 		97CF50E31E5652C100324D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF50E21E5652C100324D59 /* AppDelegate.swift */; };
@@ -16,14 +16,14 @@
 		97CF50E81E5652C100324D59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CF50E61E5652C100324D59 /* Main.storyboard */; };
 		97CF50EA1E5652C100324D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97CF50E91E5652C100324D59 /* Assets.xcassets */; };
 		97CF50ED1E5652C100324D59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CF50EB1E5652C100324D59 /* LaunchScreen.storyboard */; };
-		97CF50F61E5652F600324D59 /* Modelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF50F51E5652F600324D59 /* Modelo.swift */; };
+		97CF50F61E5652F600324D59 /* ListaMercado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF50F51E5652F600324D59 /* ListaMercado.swift */; };
 		97CF50F81E56549500324D59 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF50F71E56549500324D59 /* FormViewController.swift */; };
 		97CF50FA1E5654CA00324D59 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF50F91E5654CA00324D59 /* FileHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		977EF78D1E577C7D00504DD9 /* ExportadorModelo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportadorModelo.swift; sourceTree = "<group>"; };
-		977EF78F1E577D5800504DD9 /* ImportadorModelo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportadorModelo.swift; sourceTree = "<group>"; };
+		977EF78D1E577C7D00504DD9 /* ExportadorListaMercado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportadorListaMercado.swift; sourceTree = "<group>"; };
+		977EF78F1E577D5800504DD9 /* ImportadorListaMercado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportadorListaMercado.swift; sourceTree = "<group>"; };
 		977EF7911E57815A00504DD9 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		977EF7931E57816200504DD9 /* Secao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secao.swift; sourceTree = "<group>"; };
 		97CF50DF1E5652C100324D59 /* ListaMercadoJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListaMercadoJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +33,7 @@
 		97CF50E91E5652C100324D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97CF50EC1E5652C100324D59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97CF50EE1E5652C100324D59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97CF50F51E5652F600324D59 /* Modelo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modelo.swift; sourceTree = "<group>"; };
+		97CF50F51E5652F600324D59 /* ListaMercado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaMercado.swift; sourceTree = "<group>"; };
 		97CF50F71E56549500324D59 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		97CF50F91E5654CA00324D59 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 		977EF78B1E577C4100504DD9 /* Modelo */ = {
 			isa = PBXGroup;
 			children = (
-				97CF50F51E5652F600324D59 /* Modelo.swift */,
+				97CF50F51E5652F600324D59 /* ListaMercado.swift */,
 				977EF7911E57815A00504DD9 /* Item.swift */,
 				977EF7931E57816200504DD9 /* Secao.swift */,
 			);
@@ -62,8 +62,8 @@
 		977EF78C1E577C5C00504DD9 /* Persistencia */ = {
 			isa = PBXGroup;
 			children = (
-				977EF78D1E577C7D00504DD9 /* ExportadorModelo.swift */,
-				977EF78F1E577D5800504DD9 /* ImportadorModelo.swift */,
+				977EF78D1E577C7D00504DD9 /* ExportadorListaMercado.swift */,
+				977EF78F1E577D5800504DD9 /* ImportadorListaMercado.swift */,
 			);
 			name = Persistencia;
 			sourceTree = "<group>";
@@ -143,6 +143,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = VX9GKDQWBW;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -183,12 +188,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				97CF50E51E5652C100324D59 /* ViewController.swift in Sources */,
-				97CF50F61E5652F600324D59 /* Modelo.swift in Sources */,
+				97CF50F61E5652F600324D59 /* ListaMercado.swift in Sources */,
 				97CF50F81E56549500324D59 /* FormViewController.swift in Sources */,
-				977EF78E1E577C7D00504DD9 /* ExportadorModelo.swift in Sources */,
+				977EF78E1E577C7D00504DD9 /* ExportadorListaMercado.swift in Sources */,
 				977EF7921E57815A00504DD9 /* Item.swift in Sources */,
 				97CF50E31E5652C100324D59 /* AppDelegate.swift in Sources */,
-				977EF7901E577D5800504DD9 /* ImportadorModelo.swift in Sources */,
+				977EF7901E577D5800504DD9 /* ImportadorListaMercado.swift in Sources */,
 				97CF50FA1E5654CA00324D59 /* FileHelper.swift in Sources */,
 				977EF7941E57816200504DD9 /* Secao.swift in Sources */,
 			);

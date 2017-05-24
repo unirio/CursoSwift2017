@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Modelo {
+class ListaMercado {
 	var items : [Item] = []
 	var secoes : [Secao] = []
 	

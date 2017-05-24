@@ -1,5 +1,5 @@
 //
-//  ImportadorModelo.swift
+//  ImportadorListaMercado.swift
 //  ListaMercadoJSON
 //
 //  Created by Marcio Barros on 17/02/17.
@@ -8,22 +8,22 @@
 
 import Foundation
 
-class ImportadorModelo {
+class ImportadorListaMercado {
 	
 	// Carrega um modelo a partir da sua representacoa JSON
-	func fromJson(json: JSONObject, modelo: Modelo) {
+	func fromJson(json: JSONObject, lista: ListaMercado) {
 		if let jsonSecoes = json["secoes"] as? JSONArray {
 			for jsonSecao in jsonSecoes {
 				if let secao = secaoFromJson(json: jsonSecao as! JSONObject) {
-					modelo.secoes.append(secao)
+					lista.secoes.append(secao)
 				}
 			}
 		}
 		
 		if let jsonItems = json["items"] as? JSONArray {
 			for jsonItem in jsonItems {
-				if let item = itemFromJson(json: jsonItem as! JSONObject, modelo: modelo) {
-					modelo.items.append(item)
+				if let item = itemFromJson(json: jsonItem as! JSONObject, lista: lista) {
+					lista.items.append(item)
 				}
 			}
 		}
@@ -39,9 +39,9 @@ class ImportadorModelo {
 	}
 	
 	// Carrega um item a partir da sua representacao JSON
-	private func itemFromJson(json: JSONObject, modelo: Modelo) -> Item? {
+	private func itemFromJson(json: JSONObject, lista: ListaMercado) -> Item? {
 		if let nome = json["nome"] as? String, let quantidade = json["qtde"] as? Int, let nomeSecao = json["secao"] as? String {
-			if let secao = modelo.pegaSecaoNome(nome: nomeSecao) {
+			if let secao = lista.pegaSecaoNome(nome: nomeSecao) {
 				return Item(nome: nome, quantidade: quantidade, secao: secao)
 			}
 		}
